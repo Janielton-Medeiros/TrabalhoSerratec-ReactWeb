@@ -1,5 +1,9 @@
 # TrabalhoSerratec-ReactWeb
-Grupo 4: ELAINE DUTRA SILVA 
+![serratec](https://github.com/joe-higashii/space-invaders-app/assets/129689531/00af72d8-daba-48fb-85b5-785ab362a4fd)
+
+# TRABALHO API REST - GRUPO 05 - ECOMMERCE
+Grupo 4: 
+ELAINE DUTRA SILVA 
 EDUARDO ANGELO DA SILVA 
 EDUARDO PACHECO CARVALHO 
 JANIELTON MEDEIROS TAVARES 
