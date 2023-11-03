@@ -17,15 +17,14 @@ const A = styled.a`
 
 const Footer = () => {
     return (
-    <>
-    <Foter class="fixarRodape">
-        <A href="https://github.com/Janielton-Medeiros/TrabalhoSerratec-ReactWeb" target="_blank">React Web Grupo 4 &COPY2023</A>
-        &nbsp; | &nbsp;
-        <A href="https://www.instagram.com/serratecoficial/" target="_blank">Instagram</A>
-        &nbsp; | &nbsp;
-        <A href="https://www.youtube.com/@SerratecOficial" target="_blank">Youtube</A> 
-    </Foter>
-    </>
+
+        <Foter class="fixarRodape">
+            <A href="https://github.com/Janielton-Medeiros/TrabalhoSerratec-ReactWeb" target="_blank">React Web Grupo 4 &COPY2023</A>
+            &nbsp; | &nbsp;
+            <A href="https://www.instagram.com/serratecoficial/" target="_blank">Instagram</A>
+            &nbsp; | &nbsp;
+            <A href="https://www.youtube.com/@SerratecOficial" target="_blank">Youtube</A>
+        </Foter>
     )
 }
 

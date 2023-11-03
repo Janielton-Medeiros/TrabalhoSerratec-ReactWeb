@@ -1,5 +1,3 @@
-import { api } from '../api/Api'
-
 import styled from 'styled-components'
 
 const StyledDiv = styled.div`
@@ -17,13 +15,12 @@ const StyledDiv = styled.div`
 `
 
 const Pedidos = () => {
+    
     return (
 
-        <>
-            <StyledDiv>
-                <h1>Pedidos</h1> 
-            </StyledDiv>
-        </>
+        <StyledDiv>
+            <h1>Pedidos</h1>
+        </StyledDiv>
     )
 }
 

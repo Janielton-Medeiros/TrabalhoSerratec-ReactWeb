@@ -1,10 +1,12 @@
 import React from 'react'
 import modelo from '../assets/img/modelo.jpg'
 import background from '../assets/img/background.jfif'
-import Footer from '../components/Footer'
 import styled from 'styled-components'
+import { api } from '../api/Api'
+import { useState } from "react"
 
 const MainLogin = styled.div`
+
   margin: 0;
   padding: 0;
   border: 0;
@@ -16,7 +18,6 @@ const MainLogin = styled.div`
   align-items: center;
   background-color: aliceblue;
   background-image: url(${background});
-
 `;
 
 const LeftLogin = styled.div`
@@ -88,6 +89,7 @@ const Textfield = styled.div`
 `;
 
 const TextfieldInput = styled.input`
+
   width: 100%;
   border: none;
   border-radius: 10px;
@@ -98,7 +100,7 @@ const TextfieldInput = styled.input`
   outline: none;
   box-sizing: border-box;
   font-family: Arial, sans-serif;
- 
+
   &::placeholder {
     color: #0000002a;
   }
@@ -132,33 +134,54 @@ const BtnLogin = styled.button`
 `;
 
 function Login() {
-  
-return (
-      <>
-    
-     <MainLogin src={background} >
-      <LeftLogin>
-        <LeftLoginH1></LeftLoginH1>
-        <LeftLoginImage src={modelo} alt="modelo" />
-      </LeftLogin>
-      <RightLogin >
-        <CardLogin>
-          <RightLogin></RightLogin>
-          <Textfield>
-            <TextfieldLabel>Email</TextfieldLabel>
-            <TextfieldInput type='email' name='email' placeholder='exemplo@gmail.com' autoComplete='off' />
-          </Textfield>
-          <Textfield>
-            <TextfieldLabel >Senha</TextfieldLabel>
-            <TextfieldInput type="password" name='senha' placeholder='4/16 caracteres' />
-          </Textfield>
-          <BtnLogin type='submit'>Entrar</BtnLogin>
-          <CardLoginLink href=""><h3>Novo usuário? Cadastre-se!</h3></CardLoginLink>
-        </CardLogin>
-      </RightLogin>
-     </MainLogin>
-     </>
+
+  const CadastroLogin = () => {
+    const [email, setEmail] = useState('')
+    const [nome, setNome] = useState('')
+    const [senha, setSenha] = useState('')
+    const [listaLogin, setlistaLogin] = useState([])
+
+
+    const handleSave = async (e) => {
+      e.preventDefault()
+      await api.post('/login', { nome, email, senha })
+
+    }
+
+    const handleLimpar = () => {
+      setNome('')
+      setEmail('')
+      setSenha('')
+    }
+  }
+
+  return (
+
+    <>
+      <MainLogin src={background} >
+        <LeftLogin>
+          <LeftLoginH1></LeftLoginH1>
+          <LeftLoginImage src={modelo} alt="modelo" />
+        </LeftLogin>
+        <RightLogin >
+          <CardLogin>
+            <RightLogin></RightLogin>
+            <Textfield>
+              <TextfieldLabel>Email</TextfieldLabel>
+              <TextfieldInput type='email' name='email' placeholder='exemplo@gmail.com' autoComplete='off' />
+            </Textfield>
+            <Textfield>
+              <TextfieldLabel >Senha</TextfieldLabel>
+              <TextfieldInput type="password" name='senha' placeholder='4/16 caracteres' />
+            </Textfield>
+            <BtnLogin type='submit'>Entrar</BtnLogin>
+            <CardLoginLink href=""><h3>Novo usuário? Cadastre-se!</h3></CardLoginLink>
+          </CardLogin>
+        </RightLogin>
+      </MainLogin>
+    </>
   )
 }
 
 export default Login
+
