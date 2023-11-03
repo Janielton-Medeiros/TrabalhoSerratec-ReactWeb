@@ -1,3 +1,5 @@
+import { api } from '../api/Api'
+
 const Pedidos = () => {
     return (
         <>

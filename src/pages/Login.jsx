@@ -1,8 +1,9 @@
 import React from 'react'
 import modelo from '../assets/img/modelo.jpg'
 import background from '../assets/img/background.jfif'
-import Footer from '../components/Footer'
 import styled from 'styled-components'
+import { api } from '../api/Api'
+import { useState } from "react"
 
 const MainLogin = styled.div`
   margin: 0;
@@ -132,7 +133,32 @@ const BtnLogin = styled.button`
 `;
 
 function Login() {
-  
+ 
+    
+    
+    const CadastroLogin= () => {
+    const [email, setEmail] = useState('')
+    const [nome, setNome] = useState('')
+    const [senha, setSenha] = useState('')
+    const [listaLogin, setlistaLogin] = useState([])
+    
+
+        const handleSave = async (e) => {
+            e.preventDefault()
+            await api.post('/login', {nome, email, senha})
+            
+        }
+
+        const handleLimpar = () => {
+            setNome('')
+            setEmail('')
+            setSenha('')
+            }
+        }
+    
+    
+
+
 return (
       <>
     
@@ -162,3 +188,4 @@ return (
 }
 
 export default Login
+

@@ -6,8 +6,8 @@ import {
     RouterProvider,
 } from "react-router-dom";
 
-import Home from "./pages/Home.jsx";
-import Login from "./pages/login.jsx";
+import Produtos from "./pages/Produtos.jsx"
+import Login from "./pages/Login.jsx";
 import Pedidos from "./pages/Pedidos.jsx";
 import ProdutoDesc from "./pages/ProdutoDesc.jsx";
 import Page404 from './pages/Page404.jsx';
@@ -25,19 +25,19 @@ const router = createBrowserRouter([
         errorElement: <Page404 />,
         children: [
             {
-                path: "/",
+                path: "/login",
                 element: <Login />,
                 errorElement: <Page404 />,
             },
             {
-                path: "/home",
-                element: <Home />,
+                path: "/produtos",
+                element: <Produtos/>,
                 errorElement: <Page404 />
             },
             {
                 path: "/pedidos/:id",
                 element: <Pedidos />,
-                errorElement: <Page404 />,
+                errorElement: <Page404/>,
             },
             {
                 path: "/produtodesc/:id",
