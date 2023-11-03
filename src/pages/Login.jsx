@@ -2,8 +2,11 @@ import React from 'react'
 import modelo from '../assets/img/modelo.jpg'
 import background from '../assets/img/background.jfif'
 import styled from 'styled-components'
+import { api } from '../api/Api'
+import { useState } from "react"
 
 const MainLogin = styled.div`
+
   margin: 0;
   padding: 0;
   border: 0;
@@ -15,7 +18,6 @@ const MainLogin = styled.div`
   align-items: center;
   background-color: aliceblue;
   background-image: url(${background});
-
 `;
 
 const LeftLogin = styled.div`
@@ -133,9 +135,29 @@ const BtnLogin = styled.button`
 
 function Login() {
 
-  return (
-    <>
+  const CadastroLogin = () => {
+    const [email, setEmail] = useState('')
+    const [nome, setNome] = useState('')
+    const [senha, setSenha] = useState('')
+    const [listaLogin, setlistaLogin] = useState([])
 
+
+    const handleSave = async (e) => {
+      e.preventDefault()
+      await api.post('/login', { nome, email, senha })
+
+    }
+
+    const handleLimpar = () => {
+      setNome('')
+      setEmail('')
+      setSenha('')
+    }
+  }
+
+  return (
+
+    <>
       <MainLogin src={background} >
         <LeftLogin>
           <LeftLoginH1></LeftLoginH1>
@@ -162,3 +184,4 @@ function Login() {
 }
 
 export default Login
+

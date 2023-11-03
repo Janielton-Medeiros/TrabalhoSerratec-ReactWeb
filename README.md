@@ -1,7 +1,7 @@
 # TrabalhoSerratec-ReactWeb
 ![serratec](https://github.com/joe-higashii/space-invaders-app/assets/129689531/00af72d8-daba-48fb-85b5-785ab362a4fd)
 
-# TRABALHO REACT WEB - GRUPO 04 - ECOMMERCE SHENA
+# TRABALHO REACT WEB - GRUPO 04 - ECOMMERCE SHEINA
 Grupo 4: 
 
 ELAINE DUTRA SILVA 

@@ -58,7 +58,7 @@ export const Navbar = () => {
         <StyledNavBar>
 
             <div>
-                <Link to={"/home"}>Logo</Link>
+                <Link to={"/produtos"}>Logo</Link>
             </div>
 
             <ul>
