@@ -157,7 +157,6 @@ return (
         </CardLogin>
       </RightLogin>
      </MainLogin>
-     <Footer/>
      </>
   )
 }
