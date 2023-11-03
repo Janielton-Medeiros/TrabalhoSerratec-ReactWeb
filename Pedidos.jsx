@@ -14,14 +14,14 @@ const StyledDiv = styled.div`
     
 `
 
-const ProdutoDesc = () => {
+const Pedidos = () => {
+    
+    return (
 
-    return(
-        
         <StyledDiv>
-            <h1>Produto</h1>
+            <h1>Pedidos</h1>
         </StyledDiv>
     )
 }
 
-export default ProdutoDesc
+export default Pedidos

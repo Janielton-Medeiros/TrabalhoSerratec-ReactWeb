@@ -4,6 +4,7 @@ import styled from 'styled-components'
 
 const StyledNavBar = styled.nav`
 
+    height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -29,6 +30,8 @@ const StyledNavBar = styled.nav`
 
             width: 100%;
             height: 100%;
+            display: flex;
+            align-items: center;
             font-weight: regular;
             list-style-type: none; 
 
@@ -53,9 +56,11 @@ export const Navbar = () => {
     return (
 
         <StyledNavBar>
+
             <div>
                 <Link to={"/home"}>Logo</Link>
             </div>
+
             <ul>
                 <li>
                     <Link to={"/pedidos/:id"}>Pedidos</Link>
@@ -66,6 +71,7 @@ export const Navbar = () => {
                 <li>Carrinho</li>
                 <li>Meu Perfil</li>
             </ul>
+            
         </StyledNavBar>
     )
 }
