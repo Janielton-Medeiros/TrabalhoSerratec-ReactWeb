@@ -9,6 +9,7 @@ const CardProduto = ({ produto }) => {
     const handleChangeRouter = (produto) => {
 
         navigate(`/produtodesc/:${produto.id}`)
+
     }
 
     return (
