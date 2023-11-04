@@ -3,6 +3,7 @@ import { api } from '../api/Api'
 import CardProduto from "../components/CardProduto"
 import styled from 'styled-components'
 import { Navbar } from "../components/Navbar"
+import { Link, useParams } from 'react-router-dom'
 
 const StyledDiv = styled.div`
 
@@ -105,6 +106,15 @@ const Produtos = () => {
     const [favoritos, setFavoritos] = useState('')
     const [produtos, setProdutos] = useState([])
 
+    useEffect(() => {
+        async function getProdutos() {
+          const response = await api.get("/produtos");
+          setProdutos(response.data);
+        }
+    
+        getProdutos();
+      }, []);
+
     const handleSave = async (e) => {
 
         e.preventDefault()
@@ -145,7 +155,7 @@ const Produtos = () => {
             <StyledDiv>
                 <h1>Produtos</h1>
                 <input type="text" placeholder="Pesquisar produtos" onChange={(e) => setNome(e.target.value)}/>
-                <div id="container">
+                <div id="container"  > 
                 {resultadosDaPesquisa.map((produto) => (<CardProduto produto={produto} />))}
                 </div>
             </StyledDiv>

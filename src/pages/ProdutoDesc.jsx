@@ -1,6 +1,8 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import { api } from '../api/Api'
 import styled from 'styled-components'
+import { Link, useParams } from 'react-router-dom'
+import CardProduto from "../components/CardProduto"
 
 const StyledDiv = styled.div`
 
@@ -17,31 +19,36 @@ const StyledDiv = styled.div`
 
 const ProdutoDesc = () => {
 
-    const CadastroProd = () => {
-        const [nome, setNome] = useState('')
-        const [preco, setPreco] = useState('')
-        const [quantidade, setQuantidade] = useState('')
-        const [descricao, setDescricao] = useState('')
-        const [img, setImg] = useState('')
-        const [favoritos, setFavoritos] = useState('')
+    const [produto, setProduto] = useState([])
+    const { id } = useParams()
 
-        const handleSave = async (e) => {
-            e.preventDefault()
-            await api.post('/produtos', { nome, preco, quantidade, descricao, img, favoritos, like: 0 })
+    
+    
 
-        }
-
-        const handleLimpar = () => {
-            setNome('')
-            setEmail('')
-            setSenha('')
-        }
+    const handleAtualizarLista = () => {
+        getProduto()
     }
+
+    const getProduto = async () => {
+
+        const response = await api.get(`/produtos/${id}`)
+        setProduto(response.data)
+    
+    
+}
+
+
+    useEffect(() => {
+    handleAtualizarLista()
+    }, [])
+    
 
     return (
 
         <StyledDiv>
-            <h1>Produto</h1>
+            <CardProduto produto={produto} />
+            <h1>{produto.nome}</h1>
+            <button>Carrinho</button>
         </StyledDiv>
     )
 }
