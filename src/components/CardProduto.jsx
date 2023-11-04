@@ -1,11 +1,19 @@
 import React from 'react'
 import { SiGithubsponsors } from "react-icons/si";
+import { useNavigate } from 'react-router-dom';
 
 const CardProduto = ({ produto }) => {
 
+    const navigate = useNavigate()
+
+    const handleChangeRouter = (produto) => {
+
+        navigate(`/produtodesc/:${produto.id}`)
+    }
+
     return (
 
-        <div className='item'>
+        <div onClick={() => {handleChangeRouter(produto)}} className='item'>
 
             <img src={produto.urlimg} alt="foto-produto" />
 
