@@ -65,7 +65,6 @@ const StyledDiv = styled.div`
                 transform: scale(2);
 
                 &:hover {
-
                     color: red;
                 }
             }
