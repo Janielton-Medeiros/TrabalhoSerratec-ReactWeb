@@ -1,17 +1,25 @@
 import React from 'react'
-import styled from 'styled-components'
+import { SiGithubsponsors } from "react-icons/si";
 
-export const CardProduto = ({ produto }) => {
+const CardProduto = ({ produto }) => {
 
     return (
+
         <div className='item'>
 
             <img src={produto.imgurl} alt="foto-produto" />
 
-            <p id="quadro">
-                <h2>{produto.nome}</h2> <br />
-                <h4>{produto.preco}</h4>
-            </p>
+            <div id="quadro">
+                <span>{produto.nome}</span> <br />
+                <h4>R${produto.preco}</h4>
+            </div>
+
+            <i>
+                <SiGithubsponsors/>
+            </i>
+
         </div>
     )
 }
+
+export default CardProduto
