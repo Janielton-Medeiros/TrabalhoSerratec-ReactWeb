@@ -4,7 +4,7 @@ import background from '../assets/img/background.jfif'
 import styled from 'styled-components'
 import { api } from '../api/Api'
 import { useState } from 'react'
-import { Navigate } from 'react-router-dom'
+import { Navigate,useNavigate } from 'react-router-dom'
 
 const MainLogin = styled.div`
 
@@ -137,6 +137,8 @@ const BtnLogin = styled.button`
 
 function Login() {
 
+  const navigate = useNavigate()
+
   const [email, setEmail] = useState('')
   const [nome, setNome] = useState('')
   const [senha, setSenha] = useState('')
@@ -162,13 +164,14 @@ function Login() {
 
     const dados = response.data
 
-    dados.map((item) => {
-      const {email, senha} = item
-      setEmail(email)
-      setSenha(senha)
-    })
+    console.log(dados)
 
-    return null
+    if (dados.length == 1) {
+      
+      navigate('/produtos')
+    } else {
+      alert('senha e usuarios invalidos')
+    }
   }
 
   return (

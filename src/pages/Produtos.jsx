@@ -1,44 +1,31 @@
 import React, { useEffect, useState } from "react"
 import { api } from '../api/Api'
+import { CardProduto } from "../components/CardProduto"
 import styled from 'styled-components'
-
-import modelo from '../assets/img/modelo.jpg'
 
 const StyledDiv = styled.div`
 
     width: 100vw;
-    height: calc(100% - 70px);
+    height: calc(100% - 100px);
     position: absolute;
     bottom: 0;
 
     h1 {
-
-        font-size: 2em; 
-        background: blue;
+        margin: 10px;
     }
 
     #container {
 
-        width: 30%;
-        height: 40%;
+        width: 100%;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: space-evenly;
-        background: red;
-        border-radius: 12px;
-        margin: 24px;
+        justify-content: space-around;
+        gap: 50px;
+        flex-wrap: wrap;
 
-        img {
-            width: 45%;
-        }
+        .item {
 
-        #quadro {
-
-            width: 100%;
-            display: flex;
-            justify-content: space-around;
-            padding: 0 8px;
+            width: 30%;
+            background-color: blue;
         }
     }
 `
@@ -59,36 +46,29 @@ const Produtos = () => {
         await api.post('/produtos', { nome, preco, quantidade, descricao, img, favoritos })
     }
 
+    const handleAtualizarLista = () => {
+        getProduto()
+    }
+
     const getProduto = async () => {
 
         const response = await api.get('/produtos')
         setProdutos(response.data)
     }
 
-
     useEffect(() => {
 
-        getProduto()
+        handleAtualizarLista()
     }, [])
 
     return (
 
-        <>
-            <StyledDiv>
-
-                <h1>Produtos</h1>
-
-                <div id="container">
-
-                    <img src={modelo} alt="foto-produto" />
-
-                    <div id="quadro">
-                        <h2>Nome do produto</h2>
-                        <h4>R$ 99,90</h4>
-                    </div>
-                </div>
-            </StyledDiv>
-        </>
+        <StyledDiv>
+            <h1>Produtos</h1>
+            <div id="container">
+                {produtos.map((produto) => <CardProduto produto={produto}/> )}
+            </div>
+        </StyledDiv>
     )
 }
 
