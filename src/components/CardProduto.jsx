@@ -5,10 +5,10 @@ import { useNavigate } from 'react-router-dom';
 const CardProduto = ({ produto }) => {
 
     const navigate = useNavigate()
+    
+    const handleChangeRouter = () => {
 
-    const handleChangeRouter = (produto) => {
-
-        navigate(`/produtodesc/:${produto.id}`)
+        navigate(`/produtos/${produto.id}`)
     }
 
     return (

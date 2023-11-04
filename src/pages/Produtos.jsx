@@ -3,6 +3,7 @@ import { api } from '../api/Api'
 import CardProduto from "../components/CardProduto"
 import styled from 'styled-components'
 import { Navbar } from "../components/Navbar"
+import { Link, useParams } from 'react-router-dom'
 
 const StyledDiv = styled.div`
 
@@ -104,6 +105,15 @@ const Produtos = () => {
     const [img, setImg] = useState('')
     const [favoritos, setFavoritos] = useState('')
     const [produtos, setProdutos] = useState([])
+
+    useEffect(() => {
+        async function getProdutos() {
+          const response = await api.get("/produtos");
+          setProdutos(response.data);
+        }
+    
+        getProdutos();
+      }, []);
 
     const handleSave = async (e) => {
 
