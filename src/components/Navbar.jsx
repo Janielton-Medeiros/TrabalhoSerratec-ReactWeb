@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
+import { Carrinho } from "../components/Carrinho"
 
 const StyledNavBar = styled.nav`
 
@@ -14,7 +15,8 @@ const StyledNavBar = styled.nav`
     cursor: pointer;
     font-size: 1.2rem;
     font-weight: 500;
-    position: absolute;
+    z-index: 1;
+    position: sticky;
     top: 0;
     left: 0;
     right: 0;
@@ -53,6 +55,8 @@ const StyledNavBar = styled.nav`
 
 export const Navbar = () => {
 
+    const [openCarrinho, setOpenCarrinho] = useState(false)
+
     return (
 
         <StyledNavBar>
@@ -68,10 +72,10 @@ export const Navbar = () => {
                 <li>Sobre nós</li>
                 <li>Ajuda</li>
                 <li>Categoria</li>
-                <li>Carrinho</li>
+                <li onClick={() => {setOpenCarrinho(true)}}>Carrinho</li>
                 <li>Meu Perfil</li>
             </ul>
-            
+            <Carrinho isOpen={openCarrinho} setCarrinhoOpen={() => setOpenCarrinho(!openCarrinho)} />
         </StyledNavBar>
     )
 }

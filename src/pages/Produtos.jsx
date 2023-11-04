@@ -8,7 +8,7 @@ const StyledDiv = styled.div`
 
     width: 100vw;
     height: calc(100% - 70px);
-    position: absolute;
+    position: relative;
     bottom: 0;
 
     h1 {
@@ -45,6 +45,7 @@ const StyledDiv = styled.div`
 
                 margin-top: 10px;
                 width: 200px;
+                height: 250px;
                 border-radius: 8px;
                 box-shadow: 0 2px 8px 0 rgba( 31, 38, 135, 0.37 );
             }
@@ -57,6 +58,7 @@ const StyledDiv = styled.div`
             }
 
             svg {
+
                 display: flex;
                 align-items: center;
                 justify-content: center;
@@ -72,11 +74,12 @@ const StyledDiv = styled.div`
 
             #quadro {
 
-                margin-top: 20px;
+                margin-top: 60px;
                 width: 100%;
                 height: 20%;
                 padding: 12px;
-                background-color: #c1c6c9;
+                background: linear-gradient(115deg, #c1c6c9, #f0f8ff);
+                color: #2f2f2f;
 
                 span {
 

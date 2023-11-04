@@ -7,7 +7,7 @@ const CardProduto = ({ produto }) => {
 
         <div className='item'>
 
-            <img src={produto.imgurl} alt="foto-produto" />
+            <img src={produto.urlimg} alt="foto-produto" />
 
             <div id="quadro">
                 <span>{produto.nome}</span> <br />
