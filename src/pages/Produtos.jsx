@@ -1,31 +1,93 @@
 import React, { useEffect, useState } from "react"
 import { api } from '../api/Api'
-import { CardProduto } from "../components/CardProduto"
+import CardProduto  from "../components/CardProduto"
 import styled from 'styled-components'
 
 const StyledDiv = styled.div`
 
     width: 100vw;
-    height: calc(100% - 100px);
+    height: calc(100% - 70px);
     position: absolute;
     bottom: 0;
 
     h1 {
+
+        padding-top: 20px;
         margin: 10px;
     }
 
     #container {
 
         width: 100%;
+        height: 100%;
         display: flex;
         justify-content: space-around;
-        gap: 50px;
         flex-wrap: wrap;
 
         .item {
 
-            width: 30%;
-            background-color: blue;
+            width: 300px;
+            height: 400px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+            overflow: hidden;
+            margin: 20px;
+            border-radius: 12px;
+            border: 1px solid #2b2b2b26;
+            background: rgba( 255, 255, 255, 0.25 );
+            backdrop-filter: blur( 4px );
+            position: relative;
+
+            img {
+
+                margin-top: 10px;
+                width: 200px;
+                border-radius: 8px;
+                box-shadow: 0 2px 8px 0 rgba( 31, 38, 135, 0.37 );
+            }
+
+            &:hover {
+
+                box-shadow: -5px 5px 10px #c1c6c9;
+                transform: scale(1.05);
+                transition: .3s ease-in-out;
+            }
+
+            svg {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: absolute;
+                top: 12px;
+                right: 12px;
+                transform: scale(2);
+
+                &:hover {
+
+                    color: red;
+                }
+            }
+
+            #quadro {
+
+                margin-top: 20px;
+                width: 100%;
+                height: 20%;
+                padding: 12px;
+                background-color: #c1c6c9;
+
+                span {
+
+                    font-size: 1.2em;
+                }
+
+                h4 {
+
+                    font-size: 1.5em;
+                }
+            }
         }
     }
 `

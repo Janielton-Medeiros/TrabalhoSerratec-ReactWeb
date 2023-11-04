@@ -4,7 +4,7 @@ import background from '../assets/img/background.jfif'
 import styled from 'styled-components'
 import { api } from '../api/Api'
 import { useState } from 'react'
-import { Navigate,useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const MainLogin = styled.div`
 
