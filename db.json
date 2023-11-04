@@ -1,5 +1,5 @@
 {
-  "login": [
+  "users": [
     {
       "nome": "Eduardo Pacheco",
       "email": "eduardo@gmail.com",
@@ -13,6 +13,7 @@
       "id": 2
     }
   ],
+  
   "produtos": [
     {
       "id": 1,
