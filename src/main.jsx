@@ -4,7 +4,7 @@ import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Produtos from "./pages/Produtos.jsx"
-import Login from "./pages/Login.jsx";
+import Login from './pages/login.jsx';
 import Pedidos from "./pages/Pedidos.jsx";
 import ProdutoDesc from "./pages/ProdutoDesc.jsx";
 import Page404 from './pages/Page404.jsx';
@@ -19,7 +19,7 @@ const router = createBrowserRouter([
         errorElement: <Page404 />,
         children: [
             {
-                path: "/login",
+                path: "/",
                 element: <Login />,
                 errorElement: <Page404 />,
             },

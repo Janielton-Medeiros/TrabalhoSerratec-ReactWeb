@@ -3,7 +3,8 @@ import modelo from '../assets/img/modelo.jpg'
 import background from '../assets/img/background.jfif'
 import styled from 'styled-components'
 import { api } from '../api/Api'
-import { useState } from "react"
+import { useState } from 'react'
+import { Navigate } from 'react-router-dom'
 
 const MainLogin = styled.div`
 
@@ -133,32 +134,47 @@ const BtnLogin = styled.button`
   }
 `;
 
+
 function Login() {
 
-  const CadastroLogin = () => {
-    const [email, setEmail] = useState('')
-    const [nome, setNome] = useState('')
-    const [senha, setSenha] = useState('')
-    const [listaLogin, setlistaLogin] = useState([])
+  const [email, setEmail] = useState('')
+  const [nome, setNome] = useState('')
+  const [senha, setSenha] = useState('')
+  const [listaLogin, setlistaLogin] = useState([])
 
+  const handleSave = async (e) => {
+    e.preventDefault()
+    await api.post('/login', { nome, email, senha })
 
-    const handleSave = async (e) => {
-      e.preventDefault()
-      await api.post('/login', { nome, email, senha })
+  }
 
-    }
+  const handleLimpar = () => {
+    setNome('')
+    setEmail('')
+    setSenha('')
+  }
 
-    const handleLimpar = () => {
-      setNome('')
-      setEmail('')
-      setSenha('')
-    }
+  const getUsers = async (e) => {
+
+    e.preventDefault()
+    
+    const response = await api.get('/users', {params: {email, senha}})
+
+    const dados = response.data
+
+    dados.map((item) => {
+      const {email, senha} = item
+      setEmail(email)
+      setSenha(senha)
+    })
+
+    return null
   }
 
   return (
 
     <>
-      <MainLogin src={background} >
+      <MainLogin src={background} onSubmit={getUsers}>
         <LeftLogin>
           <LeftLoginH1></LeftLoginH1>
           <LeftLoginImage src={modelo} alt="modelo" />
@@ -168,11 +184,11 @@ function Login() {
             <RightLogin></RightLogin>
             <Textfield>
               <TextfieldLabel>Email</TextfieldLabel>
-              <TextfieldInput type='email' name='email' placeholder='exemplo@gmail.com' autoComplete='off' />
+              <TextfieldInput onChange={(e) => { setEmail(e.target.value) }} type='email' name='email' placeholder='exemplo@gmail.com' autoComplete='off' />
             </Textfield>
             <Textfield>
               <TextfieldLabel >Senha</TextfieldLabel>
-              <TextfieldInput type="password" name='senha' placeholder='4/16 caracteres' />
+              <TextfieldInput onChange={(e) => { setSenha(e.target.value) }} type="text" name='senha' placeholder='4/16 caracteres' />
             </Textfield>
             <BtnLogin type='submit'>Entrar</BtnLogin>
             <CardLoginLink href=""><h3>Novo usuário? Cadastre-se!</h3></CardLoginLink>
