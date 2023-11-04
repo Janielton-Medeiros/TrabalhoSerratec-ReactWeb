@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from "react"
 import { api } from '../api/Api'
-import CardProduto  from "../components/CardProduto"
+import CardProduto from "../components/CardProduto"
 import styled from 'styled-components'
+import { Navbar } from "../components/Navbar"
 
 const StyledDiv = styled.div`
 
@@ -123,13 +124,15 @@ const Produtos = () => {
     }, [])
 
     return (
-
-        <StyledDiv>
-            <h1>Produtos</h1>
-            <div id="container">
-                {produtos.map((produto) => <CardProduto produto={produto}/> )}
-            </div>
-        </StyledDiv>
+        <>
+            <Navbar />
+            <StyledDiv>
+                <h1>Produtos</h1>
+                <div id="container">
+                    {produtos.map((produto) => <CardProduto produto={produto} />)}
+                </div>
+            </StyledDiv>
+        </>
     )
 }
 

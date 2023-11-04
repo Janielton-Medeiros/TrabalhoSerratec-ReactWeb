@@ -1,4 +1,5 @@
 import { api } from '../api/Api'
+import { Navbar } from '../components/Navbar'
 
 import styled from 'styled-components'
 
@@ -20,6 +21,7 @@ const Pedidos = () => {
     return (
 
         <>
+            <Navbar />
             <StyledDiv>
                 <h1>Pedidos</h1> 
             </StyledDiv>
