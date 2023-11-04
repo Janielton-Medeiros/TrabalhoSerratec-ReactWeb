@@ -12,8 +12,7 @@ const StyledDiv = styled.div`
 
     h1 {
         font-size: 10em; 
-    }
-    
+    }   
 `
 
 const ProdutoDesc = () => {
