@@ -126,13 +126,27 @@ const Produtos = () => {
         handleAtualizarLista()
     }, [])
 
+    const [resultadosDaPesquisa, setResultadosDaPesquisa] = useState(produtos)
+    const filtrarProdutos = () => {
+        if (nome === '') {
+          setResultadosDaPesquisa(produtos)
+        } else {
+          const resultados = produtos.filter((produto) => produto.nome.includes(nome))
+          setResultadosDaPesquisa(resultados)
+        }
+      }
+      useEffect(() => {
+        filtrarProdutos()
+      }, [nome])
+
     return (
         <>
             <Navbar />
             <StyledDiv>
                 <h1>Produtos</h1>
+                <input type="text" placeholder="Pesquisar produtos" onChange={(e) => setNome(e.target.value)}/>
                 <div id="container">
-                    {produtos.map((produto) => <CardProduto produto={produto} />)}
+                {resultadosDaPesquisa.map((produto) => (<CardProduto produto={produto} />))}
                 </div>
             </StyledDiv>
         </>
