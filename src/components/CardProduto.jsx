@@ -5,15 +5,15 @@ import { useNavigate } from 'react-router-dom';
 const CardProduto = ({ produto }) => {
 
     const navigate = useNavigate()
-    
-    const handleChangeRouter = () => {
+
+    const handleChangeRouter = (produto) => {
 
         navigate(`/produtos/${produto.id}`)
     }
 
     return (
 
-        <div onClick={() => {handleChangeRouter(produto)}} className='item'>
+        <div onClick={() => { handleChangeRouter(produto) }} className='item'>
 
             <img src={produto.urlimg} alt="foto-produto" />
 
@@ -23,7 +23,7 @@ const CardProduto = ({ produto }) => {
             </div>
 
             <i>
-                <SiGithubsponsors/>
+                <SiGithubsponsors />
             </i>
 
         </div>

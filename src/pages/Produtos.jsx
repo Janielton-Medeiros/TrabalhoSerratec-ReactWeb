@@ -107,13 +107,14 @@ const Produtos = () => {
     const [produtos, setProdutos] = useState([])
 
     useEffect(() => {
+        
         async function getProdutos() {
-          const response = await api.get("/produtos");
-          setProdutos(response.data);
+            const response = await api.get("/produtos");
+            setProdutos(response.data);
         }
-    
+
         getProdutos();
-      }, []);
+    }, []);
 
     const handleSave = async (e) => {
 
@@ -146,7 +147,7 @@ const Produtos = () => {
             setResultadosDaPesquisa(resultados)
         }
     }
-    
+
     useEffect(() => {
         filtrarProdutos()
     }, [nome])
