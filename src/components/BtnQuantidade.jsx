@@ -22,16 +22,16 @@ export const BtnQuantidade = ({ produto }) => {
   return (
 
     <div className='btn-more'>
-      <button className='leftButton' onClick={aumentarQuantidade}>
-        +
-      </button>
-
-      <input value={quantidade} type="number" min={1} max={produto.quantidade} />
-      
       <button className='rightButton' onClick={diminuriQuantidade}>
         -
       </button>
 
+      <input value={quantidade} type="number" min={1} max={produto.quantidade} />
+
+      <button className='leftButton' onClick={aumentarQuantidade}>
+        +
+      </button>
+      
     </div>
   )
 }

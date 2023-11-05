@@ -2,6 +2,8 @@ import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { Carrinho } from "../components/Carrinho"
+import logo from '../assets/img/logo.svg'
+
 
 const StyledNavBar = styled.nav`
 
@@ -62,7 +64,8 @@ export const Navbar = () => {
         <StyledNavBar>
 
             <div>
-                <Link to={"/produtos"}>Logo</Link>
+                <Link to={"/produtos"}></Link>
+                <img src={logo}  />
             </div>
 
             <ul>
