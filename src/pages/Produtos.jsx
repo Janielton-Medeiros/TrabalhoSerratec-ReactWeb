@@ -107,13 +107,14 @@ const Produtos = () => {
     const [produtos, setProdutos] = useState([])
 
     useEffect(() => {
+        
         async function getProdutos() {
-          const response = await api.get("/produtos");
-          setProdutos(response.data);
+            const response = await api.get("/produtos");
+            setProdutos(response.data);
         }
-    
+
         getProdutos();
-      }, []);
+    }, []);
 
     const handleSave = async (e) => {
 
@@ -146,7 +147,7 @@ const Produtos = () => {
             setResultadosDaPesquisa(resultados)
         }
     }
-    
+
     useEffect(() => {
         filtrarProdutos()
     }, [nome])
@@ -156,10 +157,10 @@ const Produtos = () => {
             <Navbar />
             <StyledDiv>
                 <h1>Produtos</h1>
-                <input type="text" placeholder="Pesquisar produtos" onChange={(e) => setNome(e.target.value)}/>
-                <div id="container"  > 
-                {resultadosDaPesquisa.map((produto) => (<CardProduto produto={produto} />))}
 
+                <input type="text" placeholder="Pesquisar produtos" onChange={(e) => setNome(e.target.value)} />
+                <div id="container">
+                    {resultadosDaPesquisa.map((produto) => <CardProduto produto={produto} />)}
                 </div>
             </StyledDiv>
         </>
