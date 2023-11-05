@@ -8,9 +8,13 @@ export const CarrinhoProvider = ({ children }) => {
     const [produto, setProduto] = useState({})
     const [quantidade, setQuantidade] = useState(1)
 
+    const limparCarrinho = () => {
+        setProdutos([]);
+      };
+
     return(
 
-        <CarrinhoContext.Provider value={{ produto, setProduto, produtos, setProdutos, quantidade, setQuantidade }}>
+        <CarrinhoContext.Provider value={{ produto, setProduto, produtos, setProdutos, quantidade, setQuantidade, limparCarrinho }}>
             {children}
         </CarrinhoContext.Provider>
     )    
