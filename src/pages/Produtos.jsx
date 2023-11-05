@@ -97,60 +97,32 @@ const StyledDiv = styled.div`
 `
 
 const Produtos = () => {
-
-    const [nome, setNome] = useState('')
-    const [preco, setPreco] = useState('')
-    const [quantidade, setQuantidade] = useState('')
-    const [descricao, setDescricao] = useState('')
-    const [img, setImg] = useState('')
-    const [favoritos, setFavoritos] = useState('')
-    const [produtos, setProdutos] = useState([])
+    const [nome, setNome] = useState('');
+    const [produtos, setProdutos] = useState([]);
+    const [resultadosDaPesquisa, setResultadosDaPesquisa] = useState([]);
 
     useEffect(() => {
-        
-        async function getProdutos() {
-            const response = await api.get("/produtos");
+        const getProdutos = async () => {
+            const response = await api.get('/produtos');
             setProdutos(response.data);
-        }
+        };
 
         getProdutos();
     }, []);
 
-    const handleSave = async (e) => {
-
-        e.preventDefault()
-        await api.post('/produtos', { nome, preco, quantidade, descricao, img, favoritos })
-    }
-
-    const handleAtualizarLista = () => {
-        getProduto()
-    }
-
-    const getProduto = async () => {
-
-        const response = await api.get('/produtos')
-        setProdutos(response.data)
-    }
 
     useEffect(() => {
+        filtrarProdutos();
+    }, [nome, produtos]);
 
-        handleAtualizarLista()
-    }, [])
-
-    const [resultadosDaPesquisa, setResultadosDaPesquisa] = useState(produtos)
     const filtrarProdutos = () => {
-
         if (nome === '') {
-            setResultadosDaPesquisa(produtos)
+            setResultadosDaPesquisa(produtos);
         } else {
-            const resultados = produtos.filter((produto) => produto.nome.includes(nome))
-            setResultadosDaPesquisa(resultados)
+            const resultados = produtos.filter((produto) => produto.nome.includes(nome));
+            setResultadosDaPesquisa(resultados);
         }
-    }
-
-    useEffect(() => {
-        filtrarProdutos()
-    }, [nome])
+    };
 
     return (
         <>
@@ -164,7 +136,7 @@ const Produtos = () => {
                 </div>
             </StyledDiv>
         </>
-    )
-}
+    );
+};
 
-export default Produtos
+export default Produtos;

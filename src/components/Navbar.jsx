@@ -64,18 +64,19 @@ export const Navbar = () => {
         <StyledNavBar>
 
             <div>
-                <Link to={"/produtos"}></Link>
+           
+                <Link  to={"/produtos"}>
                 <img src={logo}  />
+                </Link>
+                
             </div>
 
             <ul>
                 <li>
                     <Link to={"/pedidos/:id"}>Pedidos</Link>
                 </li>
-                <li>Sobre nós</li>
-                <li>Ajuda</li>
-                <li>Categoria</li>
                 <li onClick={() => {setOpenCarrinho(true)}}>Carrinho</li>
+                <li>Ajuda</li>
                 <li>Meu Perfil</li>
             </ul>
             <Carrinho isOpen={openCarrinho} setCarrinhoOpen={() => setOpenCarrinho(!openCarrinho)} />
