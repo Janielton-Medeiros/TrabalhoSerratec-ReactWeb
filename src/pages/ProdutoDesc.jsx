@@ -1,8 +1,10 @@
 import { useEffect, useState } from "react"
+import { useContext } from "react"
 import { api } from '../api/Api'
 import styled from 'styled-components'
 import { Link, useParams } from 'react-router-dom'
 import CardProduto from "../components/CardProduto"
+import { CarrinhoContext } from "../context/CarrinhoContext"
 
 const StyledDiv = styled.div`
 
@@ -19,7 +21,7 @@ const StyledDiv = styled.div`
 
 const ProdutoDesc = () => {
 
-    const [produto, setProduto] = useState([])
+    // const [produto, setProduto] = useState([])
     const { id } = useParams()
 
     
@@ -42,13 +44,23 @@ const ProdutoDesc = () => {
     handleAtualizarLista()
     }, [])
     
+    const {nome, setNome, preco, setPreco, quantidade, setQuantidade, listaProduto, setListaProduto, produto, setProduto} = useContext(CarrinhoContext)
+
+    const handleClick = (e) =>{
+        e.preventDefault()
+        // setListaProduto.push(produto)
+        setNome(produto.nome)
+        setListaProduto((prevValue) => [... prevValue,{produto}])
+        console.log(listaProduto);
+        // setListaProduto([... produto,{nome}])
+    }
 
     return (
 
         <StyledDiv>
             <CardProduto produto={produto} />
             <h1>{produto.nome}</h1>
-            <button>Carrinho</button>
+            <button onClick={handleClick}>Adicionar</button>
         </StyledDiv>
     )
 }

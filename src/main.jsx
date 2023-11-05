@@ -10,6 +10,7 @@ import ProdutoDesc from "./pages/ProdutoDesc.jsx";
 import Page404 from './pages/Page404.jsx';
 import App from './App.jsx';
 import { GlobalStyle } from './GlobalStyle.jsx';
+import { CarrinhoContext, CarrinhoProvider } from './context/CarrinhoContext.jsx';
 
 const router = createBrowserRouter([
 
@@ -46,6 +47,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     
     <React.StrictMode>
         <GlobalStyle/>
+        <CarrinhoProvider>
         <RouterProvider router={router} />
+        </CarrinhoProvider>
     </React.StrictMode>
 )

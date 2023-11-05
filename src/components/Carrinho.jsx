@@ -1,6 +1,8 @@
 import React from 'react'
 import styled from 'styled-components'
 import { FiX } from "react-icons/fi";
+import { useContext } from "react"
+import { CarrinhoContext } from '../context/CarrinhoContext';
 
 const StyledCarrinho = styled.div`
 
@@ -52,21 +54,24 @@ const StyledCarrinho = styled.div`
 
 export const Carrinho = ({ isOpen, setCarrinhoOpen }) => {
 
+    const {produto} = useContext(CarrinhoContext)
+
     if ( isOpen ) {
 
         return (
-
+            <>
             <StyledCarrinho>
                 <div>
                     <h1>Carrinho</h1>
                     <FiX onClick={setCarrinhoOpen}/>
                     <h2>Itens</h2>
-
+                    {produto.map((produto, index) => <p key={index}> {produto.nome}</p>  )}
                     <button>
                         Confirmar pedido
                     </button>
                 </div>
             </StyledCarrinho>
+            </>
         )
     } 
 
