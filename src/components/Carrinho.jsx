@@ -91,6 +91,41 @@ const StyledCarrinho = styled.div`
             }
         }
 
+        #btnLimpar {
+
+            width: 200px;
+            height: 50px;
+            border: none;
+            border-radius: 8px;
+            margin-left: 210px;
+            font-size: 1.2rem;
+            background-color: #f2f2f2;
+            box-shadow: 0 0 5px 5px #44444434;
+            cursor: pointer;
+
+            &:hover {
+
+            animation: btnLimpar .7s ease-out both;
+            transform: scale(1.2);
+            transition: .3s;
+            }
+
+            &:active {
+
+            transform: scale(.99);
+            }
+
+            @keyframes btnLimpar {
+
+            to {
+
+                background-color: #800000;
+                color: #f2f2f2;
+                
+            }
+            }
+            }
+
         
         @keyframes aparecer {
             
@@ -121,12 +156,16 @@ const StyledCarrinho = styled.div`
 `
 
 export const Carrinho = ({ isOpen, setCarrinhoOpen }) => {
-
-    const { produtos } = useContext(CarrinhoContext)
-
+    const { produtos, limparCarrinho } = useContext(CarrinhoContext);
+  
+    const handleLimparCarrinho = () => {
+       
+        limparCarrinho();
+      
+      };
+  
     if (isOpen) {
-
-        return (
+      return (
 
             <>
                 <StyledCarrinho>
@@ -140,6 +179,10 @@ export const Carrinho = ({ isOpen, setCarrinhoOpen }) => {
 
                         <button id='btnPedido'>
                             Confirmar pedido
+                        </button>
+                        <br />
+                        <button id='btnLimpar' onClick={handleLimparCarrinho}>
+                            Limpar carrinho
                         </button>
 
                         <div className='quadro'>
