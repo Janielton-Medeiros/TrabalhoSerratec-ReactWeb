@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { FiX } from "react-icons/fi";
 import { useContext } from "react"
+import { ItemPedido } from './ItemPedido';
 import { CarrinhoContext } from '../context/CarrinhoContext';
 
 const StyledCarrinho = styled.div`
@@ -15,10 +16,13 @@ const StyledCarrinho = styled.div`
     left: auto;
     bottom: 0;
 
-    div {
+    #container {
 
         animation: aparecer 1s ease-in-out;
         width: 30%;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
         background: linear-gradient(-115deg, #c1c6c9, #f0f8ff);
         border-radius: 24px 0 0 24px ;
         position: fixed;
@@ -28,7 +32,6 @@ const StyledCarrinho = styled.div`
         bottom: 0;
 
         h1, h2 {
-
             padding: 24px;
         }
 
@@ -42,38 +45,111 @@ const StyledCarrinho = styled.div`
             right: 20px;
         }
 
+        .quadro {
+
+            width: 100%;
+            height: 70%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;   
+            align-items: center;   
+            overflow-y: scroll;
+        }
+
+        #btnPedido {
+
+            width: 200px;
+            height: 50px;
+            border: none;
+            border-radius: 8px;
+            margin-left: 210px;
+            font-size: 1.2rem;
+            background-color: #f2f2f2;
+            box-shadow: 0 0 5px 5px #44444434;
+            cursor: pointer;
+
+            &:hover {
+
+                animation: btnPedido .7s ease-out both;
+                transform: scale(1.2);
+                transition: .3s;
+            }
+
+            &:active {
+
+                transform: scale(.99);
+            }
+
+            @keyframes btnPedido {
+                
+                to {
+
+                    background-color: green;
+                    color: #f2f2f2;
+                    
+                }
+            }
+        }
+
+        
         @keyframes aparecer {
             
             from {
-
+                
                 transform: translateX(300px);
             }
+        }
+
+        ::-webkit-scrollbar {
+
+            background: #2f2f2f5f;
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+
+            background: linear-gradient(-115deg, #c1c6c9, #f0f8ff);
+            border-radius: 1rem;
+            height: 20px;
+        }
+
+        ::-webkit-scrollbar-thumb:active {
+
+            background-color: #2f2f2f5f;
         }
     }
 `
 
 export const Carrinho = ({ isOpen, setCarrinhoOpen }) => {
 
-    const {produto} = useContext(CarrinhoContext)
+    const { produtos } = useContext(CarrinhoContext)
 
-    if ( isOpen ) {
+    if (isOpen) {
 
         return (
+
             <>
-            <StyledCarrinho>
-                <div>
-                    <h1>Carrinho</h1>
-                    <FiX onClick={setCarrinhoOpen}/>
-                    <h2>Itens</h2>
-                    {produto.map((produto, index) => <p key={index}> {produto.nome}</p>  )}
-                    <button>
-                        Confirmar pedido
-                    </button>
-                </div>
-            </StyledCarrinho>
+                <StyledCarrinho>
+                    <div id='container'>
+
+                        <h1>Carrinho</h1>
+
+                        <FiX onClick={setCarrinhoOpen} />
+
+                        <h2>Itens</h2>
+
+                        <button id='btnPedido'>
+                            Confirmar pedido
+                        </button>
+
+                        <div className='quadro'>
+                            {produtos.map((produto, index) => <ItemPedido produto={produto} index={index} />)}
+                        </div>
+                    </div>
+                </StyledCarrinho>
             </>
         )
-    } 
+    }
 
     return null
 }
