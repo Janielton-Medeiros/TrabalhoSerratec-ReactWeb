@@ -1,9 +1,8 @@
 import React from 'react'
-import { SiGithubsponsors } from "react-icons/si";
 import { useNavigate } from 'react-router-dom';
 
 const CardProduto = ({ produto }) => {
-
+    
     const navigate = useNavigate()
 
     const handleChangeRouter = (produto) => {
@@ -23,23 +22,19 @@ const CardProduto = ({ produto }) => {
     }
 
 
+
     return (
 
         <div onClick={() => { handleChangeRouter(produto) }} className='item' style={{ display: ProdutoDisponivel ? "block" : "none" }}>
 
-            <img src={produto.urlimg} alt="foto-produto" />
+            <img className='teste2' src={produto.urlimg} alt="foto-produto" />
 
             <div id="quadro">
                 <span>{produto.nome}</span> <br />
                 <h4>R${produto.preco}</h4>
                 {handleH4()}
             </div>
-
-            <i>
-                <SiGithubsponsors />
-            </i>
-
-        </div>
+        </div>   
     )
 }
 
