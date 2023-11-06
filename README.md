@@ -70,3 +70,5 @@ requisição para diminuir a quantidade de produtos logo após a finalização d
 
 b. Após os passos acima redirecionar para a tela de Pedidos realizados, onde
 conterá uma listagem de todos os pedidos feitos por aquele usuário. ✔️
+
+ <img align="center" alt="foto-Js" height="70" width="600" src="https://media.tenor.com/eSXTMBrfwgkAAAAi/cj-gta.gif">
