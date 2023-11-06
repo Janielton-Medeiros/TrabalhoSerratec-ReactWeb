@@ -1,14 +1,19 @@
-const Page404 = () => {
-    return (
+import error404 from '../assets/img/error404.png';
 
-        <>
-            <h2 >Algo de errado não está certo!</h2>
-            <div>
-                <span >404</span> <br />
-                <strong >Página não localizada</strong>
-            </div>
-        </>
-    )
-}
+const Page404 = () => {
+  return (
+    <>
+      <div style={{
+        width: "100vw",
+        height: "100vh",
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+      }}>
+        <img src={error404} alt="página error 404" />
+      </div>
+    </>
+  );
+};
 
 export default Page404;
