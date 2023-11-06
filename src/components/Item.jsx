@@ -48,7 +48,7 @@ export const Item = ({item}) => {
                 <div>
                     <section>
                         <h2>{item.nome}</h2>
-                        <h2>SubTotal: R$ {item.quantidade * item.preco}</h2>
+                        <h2>SubTotal: R$ {(item.quantidade * item.preco).toFixed(2)}</h2>
                     </section>
                     <h3>R$ {item.preco}</h3>
                     <h3> quantidade: {item.quantidade}</h3>

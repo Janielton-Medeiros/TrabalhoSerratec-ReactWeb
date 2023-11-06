@@ -67,7 +67,7 @@ export const Navbar = () => {
             <div>
 
                 <Link  to={"/produtos"}>
-                <img src={logo}  />
+                    <img src={logo}  />
                 </Link>
                 
             </div>

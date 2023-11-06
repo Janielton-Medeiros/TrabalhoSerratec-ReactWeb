@@ -10,7 +10,7 @@ const Foter = styled.footer`
     box-shadow: 0 2px 8px 0 rgba( 31, 38, 135, 0.37 );
     border-top: 2px solid #2f2f2f; 
     background: linear-gradient(to right, #c1c6c9, #f0f8ff);
-    position: relative;
+    position: fixed;
     bottom: 0;
     font-weight: bold;
 `;

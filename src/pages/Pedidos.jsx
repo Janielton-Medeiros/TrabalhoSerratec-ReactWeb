@@ -10,6 +10,7 @@ import format from 'date-fns/format'
 const StyledPedido = styled.div`
 
   width: 100%;
+  height: 900px;
   background: #f2f2f2;
   display: flex;
   flex-direction: column;
@@ -64,18 +65,18 @@ const StyledPedido = styled.div`
 `
 
 export const Pedidos = () => {
-  
+
   const [meusProdutos, setMeusProdutos] = useState([])
 
   const currentDate = new Date()
 
-  useEffect(async () => {
+  useEffect(() => {
 
-    await getPedidos()
+    getPedidos()
   }, [])
 
   const getPedidos = async () => {
-    
+
     const response = await (await api.get(`/pedidos`)).data
 
     const allItens = []
@@ -100,12 +101,12 @@ export const Pedidos = () => {
             <p>Data :{format(currentDate, 'dd/MM/yyyy')}</p>
           </div>
 
-          { meusProdutos.map((item) => {
+          {meusProdutos.map((item) => {
 
             return (
 
               <div >
-                
+
                 <div className='quadro'>
                   <img src={item.urlimg} alt="foto-produto" />
                   <section>
@@ -116,10 +117,10 @@ export const Pedidos = () => {
                 </div>
               </div>
             )
-          } )}
+          })}
         </div>
       </StyledPedido>
-      <Footer/>
+      <Footer />
     </>
   )
 }

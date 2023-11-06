@@ -218,14 +218,15 @@ export const Pedido = () => {
 
                         <div className='input'>
                             <input type="text" onChange={(e) => { setCupom(e.target.value) }} />
-                            <button onClick={handleDesconto}>
+                            <button style={{background: "transparent", border: "none", cursor: "pointer"}} onClick={handleDesconto}>
                                 <BiCheckSquare />
                             </button>
                         </div>
                     </div>
 
+                    {false && <div>teste</div>}
 
-                    <h3>Valor Total: R$ {valorTotal}</h3>
+                    <h3>Valor Total: R$ {valorTotal.toFixed(2)}</h3>
 
                     <button onClick={handleFinalizarPedido}>
                         Confirmar Pedido

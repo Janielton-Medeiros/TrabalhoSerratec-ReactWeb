@@ -4,7 +4,6 @@ import { api } from '../api/Api'
 import styled from 'styled-components'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ProdutoDetalhes } from "../components/ProdutoDetalhes"
-import { SiGithubsponsors } from "react-icons/si";
 
 const StyledDiv = styled.div`
 
@@ -65,20 +64,10 @@ const ProdutoDesc = () => {
         setProduto(response.data)
     }
 
-    const handleLike = () => {
-
-        api.patch(`/produtos/${produto.id}`, { likes: produto.likes + 1 });
-        setProduto({ ...produto, likes: produto.likes + 1 })
-    }
-
-
     return (
 
         <StyledDiv>
             <ProdutoDetalhes produto={produto} />
-            <button id="teste" onClick={handleLike}>
-                <SiGithubsponsors /> {produto.likes}
-            </button>
         </StyledDiv>
     )
 }

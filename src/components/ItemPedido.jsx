@@ -40,36 +40,7 @@ const StyledItem = styled.div`
             width: 40px;
             outline: none;
         }
-
-        #btn-more {
-
-            width: 200px;
-            height: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            button {
-
-                width: 30%;
-                height: 50%;
-
-                svg {
-
-                    position: absolute;
-                    top: 0;
-                    left: 0;
-                }
-            }
-
-            input {
-
-                width: 40%;
-                height: 50%;
-                text-align: center;
-            }
-        }
-
+        
         #info {
 
             width: 100%;
@@ -82,7 +53,7 @@ const StyledItem = styled.div`
 
 export const ItemPedido = ({ produto }) => {
 
-    const { quantidade, setQuantidade } = useContext(CarrinhoContext)
+    const { quantidade } = useContext(CarrinhoContext)
 
     return (
 
@@ -95,10 +66,8 @@ export const ItemPedido = ({ produto }) => {
                     <h3>{produto.nome}</h3>
                     <h5>R$ {produto.preco}</h5>
                 </div>
-
-                <div id='btn-more'>
-                    <BtnQuantidade quantidade={quantidade}/>
-                </div>
+                <br />
+                <h5>{produto.descricao}</h5>
             </div>
         </StyledItem>
     )
