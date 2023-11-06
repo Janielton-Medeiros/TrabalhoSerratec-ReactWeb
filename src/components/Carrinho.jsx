@@ -4,7 +4,8 @@ import { FiX } from "react-icons/fi";
 import { useContext } from "react"
 import { ItemPedido } from './ItemPedido';
 import { CarrinhoContext } from '../context/CarrinhoContext';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 const StyledCarrinho = styled.div`
 
@@ -154,31 +155,40 @@ const StyledCarrinho = styled.div`
             background-color: #2f2f2f5f;
         }
     }
+    #teste{
+        display: flex;
+        justify-content: center;
+        margin-top: 45px;
+        font-size: 40px;
+        
+    }
 `
 
 export const Carrinho = ({ isOpen, setCarrinhoOpen }) => {
-    const { produtos, limparCarrinho } = useContext(CarrinhoContext);
-    const navigate = useNavigate()
-  
-    const handleLimparCarrinho = () => {
-       
-        limparCarrinho();
-      
-      };
 
-    const handleConfirmarPedido = (e) => {
-      
-        navigate('/pedidos/id')
-      
+    const navigate = useNavigate()
+
+    const { produtos, limparCarrinho } = useContext(CarrinhoContext);
+
+
+    const handleLimparCarrinho = () => {
+
+        limparCarrinho();
     }
-  
+
+    const handleConfirmarPedido = () => {
+        if (produtos.length === 0) {
+            alert('Seu carrinho está vazio!')
+    } else{ navigate(`/finalizar`)}
+    }
+
     if (isOpen) {
-      return (
+
+        return (
 
             <>
                 <StyledCarrinho>
                     <div id='container'>
-
                         <h1>Carrinho</h1>
 
                         <FiX onClick={setCarrinhoOpen} />
@@ -193,8 +203,14 @@ export const Carrinho = ({ isOpen, setCarrinhoOpen }) => {
                             Limpar carrinho
                         </button>
 
+                        {produtos.length === 0 && (
+                            <div id='teste'>
+                            <span>O seu carrinho está vazio</span>
+                            </div>
+                        )}
+
                         <div className='quadro'>
-                            {produtos.map((produto, index) => <ItemPedido produto={produto} index={index} />)}
+                            {produtos.map((produto) => <ItemPedido produto={produto} />)}
                         </div>
                     </div>
                 </StyledCarrinho>

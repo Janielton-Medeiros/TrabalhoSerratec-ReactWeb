@@ -6,7 +6,6 @@ import { useNavigate, useParams } from 'react-router-dom'
 import { ProdutoDetalhes } from "../components/ProdutoDetalhes"
 import { SiGithubsponsors } from "react-icons/si";
 
-
 const StyledDiv = styled.div`
 
     width: 100vw;
@@ -16,7 +15,7 @@ const StyledDiv = styled.div`
     align-items: center;
     justify-content: center; 
 
-    #btnFinalizarPedido , #teste{
+    #btnFinalizarPedido , #teste {
 
         width: 190px;
         height: 75px;
@@ -29,7 +28,7 @@ const StyledDiv = styled.div`
         border: none;
         position: relative;
         top: 39%;
-        left: -19%;
+        left: -9.5%;
         bottom: 15%;
         right: 29%;
         
@@ -66,24 +65,19 @@ const ProdutoDesc = () => {
         setProduto(response.data)
     }
 
-    const handleClick = () => {
-
-        setProdutos([...produtos, produto])
-        navigate('/produtos')
-    }
     const handleLike = () => {
+
         api.patch(`/produtos/${produto.id}`, { likes: produto.likes + 1 });
-            //   produto.likes = produto.likes + 1;
-              setProduto({...produto, likes : produto.likes + 1})
-      };
+        setProduto({ ...produto, likes: produto.likes + 1 })
+    }
+
 
     return (
 
         <StyledDiv>
             <ProdutoDetalhes produto={produto} />
-            <button id="btnFinalizarPedido" onClick={handleClick}>Adicionar</button>
             <button id="teste" onClick={handleLike}>
-                <SiGithubsponsors/> {produto.likes}
+                <SiGithubsponsors /> {produto.likes}
             </button>
         </StyledDiv>
     )

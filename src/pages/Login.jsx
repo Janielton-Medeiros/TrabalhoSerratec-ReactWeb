@@ -5,6 +5,8 @@ import styled from 'styled-components'
 import { api } from '../api/Api'
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { CarrinhoContext } from '../context/CarrinhoContext'
+import { useContext } from 'react'
 
 const MainLogin = styled.div`
 
@@ -137,6 +139,8 @@ const BtnLogin = styled.button`
 
 function Login() {
 
+  const { setUsuario } = useContext(CarrinhoContext)
+
   const navigate = useNavigate()
 
   const [email, setEmail] = useState('')
@@ -147,7 +151,6 @@ function Login() {
   const handleSave = async (e) => {
     e.preventDefault()
     await api.post('/login', { nome, email, senha })
-
   }
 
   const handleLimpar = () => {
@@ -159,12 +162,17 @@ function Login() {
   const getUsers = async (e) => {
 
     e.preventDefault()
+
+
     
     const response = await api.get('/users', {params: {email, senha}})
 
     const dados = response.data
 
-    console.log(dados)
+    dados.map((dado) => {
+
+      setUsuario(dado)
+    })
 
     if (dados.length == 1) {
       
