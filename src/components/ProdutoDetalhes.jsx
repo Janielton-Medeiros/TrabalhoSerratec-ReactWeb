@@ -120,6 +120,7 @@ export const ProdutoDetalhes = ({ produto }) => {
                     <h2>{produto.nome}</h2>
                     <h3>{produto.descricao}</h3>
                     <h1>R$ {produto.preco}</h1><h4>23% off</h4>
+                    <h3>Quantidade disponível:{produto.quantidade}</h3>
                     <h4>em 10x sem juros</h4>
                 </div>
 

@@ -6,7 +6,7 @@ export const CarrinhoProvider = ({ children }) => {
     
     const [produtos, setProdutos] = useState([])
     const [produto, setProduto] = useState({})
-    const [quantidade, setQuantidade] = useState(1)
+    const [quantidade, setQuantidade] = useState(0)
 
     const limparCarrinho = () => {
         setProdutos([]);

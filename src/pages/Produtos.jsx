@@ -13,9 +13,29 @@ const StyledDiv = styled.div`
     bottom: 0;
 
     h1 {
-
+        font-size: 35px;
         padding-top: 20px;
         margin: 10px;
+        text-align: center;
+        
+       
+    }
+
+    input {
+        width: 600px;
+        height: 40px;
+        margin: 0 auto;
+        border: 5px solid #020202;
+        border-radius: 4px;
+        padding: 10px;
+        font-size: 16px;
+        text-align: center;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+       
+
+        
     }
 
     #container {
@@ -25,6 +45,7 @@ const StyledDiv = styled.div`
         display: flex;
         justify-content: space-around;
         flex-wrap: wrap;
+        padding: 50px;
 
         .item {
 
@@ -128,7 +149,7 @@ const Produtos = () => {
         <>
             <Navbar />
             <StyledDiv>
-                <h1>Produtos</h1>
+                <h1>Quais produtos deseja encontrar?</h1>
                 <input type="text" placeholder="Pesquisar produtos" onChange={(e) => setNome(e.target.value)} />
                 <div id="container">
                     {resultadosDaPesquisa.map((produto) => <CardProduto produto={produto} />)}
