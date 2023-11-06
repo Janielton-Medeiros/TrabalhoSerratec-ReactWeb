@@ -13,6 +13,8 @@ export const CarrinhoProvider = ({ children }) => {
     const limparCarrinho = () => {
 
         setProdutos([]);
+        setProduto({})
+        setItens([])
     };
 
     return(
