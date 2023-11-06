@@ -155,6 +155,13 @@ const StyledCarrinho = styled.div`
             background-color: #2f2f2f5f;
         }
     }
+    #teste{
+        display: flex;
+        justify-content: center;
+        margin-top: 45px;
+        font-size: 40px;
+        
+    }
 `
 
 export const Carrinho = ({ isOpen, setCarrinhoOpen }) => {
@@ -170,8 +177,9 @@ export const Carrinho = ({ isOpen, setCarrinhoOpen }) => {
     }
 
     const handleConfirmarPedido = () => {
-
-        navigate(`/finalizar`)
+        if (produtos.length === 0) {
+            alert('Seu carrinho está vazio!')
+    } else{ navigate(`/finalizar`)}
     }
 
     if (isOpen) {
@@ -181,7 +189,6 @@ export const Carrinho = ({ isOpen, setCarrinhoOpen }) => {
             <>
                 <StyledCarrinho>
                     <div id='container'>
-
                         <h1>Carrinho</h1>
 
                         <FiX onClick={setCarrinhoOpen} />
@@ -195,6 +202,12 @@ export const Carrinho = ({ isOpen, setCarrinhoOpen }) => {
                         <button id='btnLimpar' onClick={handleLimparCarrinho}>
                             Limpar carrinho
                         </button>
+
+                        {produtos.length === 0 && (
+                            <div id='teste'>
+                            <span>O seu carrinho está vazio</span>
+                            </div>
+                        )}
 
                         <div className='quadro'>
                             {produtos.map((produto) => <ItemPedido produto={produto} />)}

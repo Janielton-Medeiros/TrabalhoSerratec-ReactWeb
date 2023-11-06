@@ -5,6 +5,7 @@ import { useContext, useEffect, useState } from 'react'
 import { Item } from '../components/Item'
 import styled from 'styled-components'
 import { BiCheckSquare } from "react-icons/bi";
+import { useNavigate } from 'react-router-dom'
 
 const StyledDiv = styled.div`
 
@@ -34,7 +35,15 @@ const StyledDiv = styled.div`
 
         div:nth-child(1) {
 
-        margin-top: 24px;
+            margin-top: 24px;
+        }
+
+        .input {
+
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            margin: 12px;
         }
 
         .pagamentos, .descontos, .campo-pedido {
@@ -45,18 +54,50 @@ const StyledDiv = styled.div`
             border-radius: 10px;
             padding: 20px;
             box-shadow: 0px 0px 20px 0px hsla(0, 0%, 0%, 0.1);
+        }
+
+        .pagamentos, .descontos {
+
+            h2 {
+                margin-bottom: 12px;
+            }
 
             h2::before,h2::after  {
 
                 content: " - ";
                 font-weight: lighter;
             }
+
+            label {
+
+                padding: 4px 24px 24px 4px;
+            }
+
+            button {
+
+                width: 25px;
+                height: 25px;
+            }
+
+            svg {
+
+                width: 100%;
+                height: 100%;
+
+            }
+
+            .pag {
+
+                width: 120px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
         }
 
         .campo-pedido {
 
             height: 300px;
-            margin: 0 auto;
             overflow-y: scroll;
 
             .nome-produto {
@@ -81,12 +122,14 @@ const StyledDiv = styled.div`
 
 export const Pedido = () => {
 
+    const navigate = useNavigate()
+
     useEffect(() => {
 
         handleDesconto()
     }, [])
 
-    const { itens } = useContext(CarrinhoContext)
+    const { itens, usuario } = useContext(CarrinhoContext)
     const [valorTotal, setValorTotal] = useState(0)
     const [cupom, setCupom] = useState('')
 
@@ -117,6 +160,21 @@ export const Pedido = () => {
         })
     }
 
+    const handleFinalizarPedido = async () => {
+
+        const pedido = {
+
+            idUsuario: usuario.id,
+            itens: itens,
+            valorTotal: valorTotal
+        }
+
+        await api.post('/pedidos', pedido)
+        alert("o pedido foi finalizado.")
+        navigate(`/pedidos/${usuario.id}`)
+    
+    }
+
     return (
         <>
             <Navbar />
@@ -137,31 +195,42 @@ export const Pedido = () => {
 
                         <h2>Forma de Pagamento </h2>
 
-                        <label htmlFor="pix">Pix</label>
-                        <input type="radio" name="pagamento" id='pix' />
+                        <div className='pag'>
+                            <label htmlFor="pix">Pix</label>
+                            <input type="radio" name="pagamento" id='pix' />
+                        </div>
 
-                        <label htmlFor="credito">Crédito</label>
-                        <input type="radio" name="pagamento" id='credito' />
+                        <div className='pag'>
+                            <label htmlFor="credito">Crédito</label>
+                            <input type="radio" name="pagamento" id='credito' />
+                        </div>
 
-                        <label htmlFor="debito">Débito</label>
-                        <input type="radio" name="pagamento" id='debito' />
+                        <div className='pag'>
+                            <label htmlFor="debito">Débito</label>
+                            <input type="radio" name="pagamento" id='debito' />
+                        </div>
                     </div>
 
                     <div className="descontos">
                         <h2>Descontos</h2>
 
                         <label htmlFor="cupom">Digite o código do cupom: </label> <br />
-                        <input type="text" onChange={(e) => { setCupom(e.target.value) }} />
-                        <button onClick={handleDesconto}>
-                            <BiCheckSquare />
-                        </button>
+
+                        <div className='input'>
+                            <input type="text" onChange={(e) => { setCupom(e.target.value) }} />
+                            <button onClick={handleDesconto}>
+                                <BiCheckSquare />
+                            </button>
+                        </div>
                     </div>
 
 
                     <h3>Valor Total: R$ {valorTotal}</h3>
-                    <button>Confirmar Pedido</button>
-                </div>
 
+                    <button onClick={handleFinalizarPedido}>
+                        Confirmar Pedido
+                    </button>
+                </div>
 
             </StyledDiv>
         </>
