@@ -4,6 +4,8 @@ import { api } from '../api/Api'
 import styled from 'styled-components'
 import { useNavigate, useParams } from 'react-router-dom'
 import { ProdutoDetalhes } from "../components/ProdutoDetalhes"
+import { SiGithubsponsors } from "react-icons/si";
+
 
 const StyledDiv = styled.div`
 
@@ -14,9 +16,9 @@ const StyledDiv = styled.div`
     align-items: center;
     justify-content: center; 
 
-    #btnFinalizarPedido {
+    #btnFinalizarPedido , #teste{
 
-        width: 200px;
+        width: 190px;
         height: 75px;
         background: #720e9e;
         color: white;
@@ -25,12 +27,12 @@ const StyledDiv = styled.div`
         box-shadow: 0 0 5px 5px #44444434;
         border-radius: 12px;
         border: none;
-        position: absolute;
-        top: auto;
-        left: auto;
+        position: relative;
+        top: 39%;
+        left: -19%;
         bottom: 15%;
         right: 29%;
-
+        
         &:hover {
             transform: scale(1.2);
             transition: .7s;
@@ -69,12 +71,20 @@ const ProdutoDesc = () => {
         setProdutos([...produtos, produto])
         navigate('/produtos')
     }
+    const handleLike = () => {
+        api.patch(`/produtos/${produto.id}`, { likes: produto.likes + 1 });
+            //   produto.likes = produto.likes + 1;
+              setProduto({...produto, likes : produto.likes + 1})
+      };
 
     return (
 
         <StyledDiv>
             <ProdutoDetalhes produto={produto} />
             <button id="btnFinalizarPedido" onClick={handleClick}>Adicionar</button>
+            <button id="teste" onClick={handleLike}>
+                <SiGithubsponsors/> {produto.likes}
+            </button>
         </StyledDiv>
     )
 }

@@ -14,30 +14,32 @@
     }
   ],
   "produtos": [
-
     {
       "id": 1,
       "nome": "Vestido floral",
       "preco": 59.99,
-      "quantidade": 30,
+      "quantidade": 10,
       "descricao": "Vestido midi estampado floral",
-      "urlimg": "https://shoppingcity.com.br/media/catalog/product/cache/51a80c9da94f85ac42b65ba251e9fd91/v/e/vestido_roxa_curto_estampa_floral_manga.jpg"
+      "urlimg": "https://shoppingcity.com.br/media/catalog/product/cache/51a80c9da94f85ac42b65ba251e9fd91/v/e/vestido_roxa_curto_estampa_floral_manga.jpg",
+      "likes": 123
     },
     {
       "id": 2,
       "nome": "Sapatos de salto alto",
       "preco": 79.99,
-      "quantidade": 25,
+      "quantidade": 5,
       "descricao": "Sapatos de salto alto em verniz",
-      "urlimg": "https://img.ltwebstatic.com/images3_pi/2023/08/31/fb/1693495017f2a8f7e72a516df4ccca6b42489100e6_thumbnail_720x.webp"
+      "urlimg": "https://img.ltwebstatic.com/images3_pi/2023/08/31/fb/1693495017f2a8f7e72a516df4ccca6b42489100e6_thumbnail_720x.webp",
+      "likes": 42
     },
     {
       "id": 3,
       "nome": "Blusa de seda",
-      "preco": 39.50,
+      "preco": 39.5,
       "quantidade": 40,
       "descricao": "Blusa de seda com decote em V",
-      "urlimg": "https://img.irroba.com.br/fit-in/600x600/filters:fill(transparent):quality(80)/empoeeoe/catalog/parte-superior/camiseta/camisa/blusas/blusa-tafeta.png"
+      "urlimg": "https://img.irroba.com.br/fit-in/600x600/filters:fill(transparent):quality(80)/empoeeoe/catalog/parte-superior/camiseta/camisa/blusas/blusa-tafeta.png",
+      "likes": 11
     },
     {
       "id": 4,
@@ -45,7 +47,8 @@
       "preco": 129.99,
       "quantidade": 15,
       "descricao": "Jaqueta de couro estilo motoqueiro",
-      "urlimg": "https://www.omk.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/j/a/jaqueta-couro-bomber-omk.jpg"
+      "urlimg": "https://www.omk.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/j/a/jaqueta-couro-bomber-omk.jpg",
+      "likes": 14
     },
     {
       "id": 5,
@@ -53,7 +56,8 @@
       "preco": 49.99,
       "quantidade": 50,
       "descricao": "Calça jeans skinny de lavagem escura",
-      "urlimg": "https://images.tcdn.com.br/img/img_prod/827420/calca_jeans_hno_jeans_skinny_preta_101_1_cd252601db1f881f29f3229afddc47ff.jpg"
+      "urlimg": "https://images.tcdn.com.br/img/img_prod/827420/calca_jeans_hno_jeans_skinny_preta_101_1_cd252601db1f881f29f3229afddc47ff.jpg",
+      "likes": 9
     },
     {
       "id": 6,
@@ -61,7 +65,8 @@
       "preco": 89.99,
       "quantidade": 20,
       "descricao": "Bolsa de ombro em couro legitimo",
-      "urlimg": "https://www.cargomasculina.com.br/image/cache/BISAO%20BC/BTM%20V/36/bolsa-transversal-masculina-alca-couro-legitimo-23-1000x1000.jpg"
+      "urlimg": "https://www.cargomasculina.com.br/image/cache/BISAO%20BC/BTM%20V/36/bolsa-transversal-masculina-alca-couro-legitimo-23-1000x1000.jpg",
+      "likes": 5
     },
     {
       "id": 7,
@@ -69,7 +74,8 @@
       "preco": 45.99,
       "quantidade": 35,
       "descricao": "Camisa social clássica de algodão",
-      "urlimg": "https://m.media-amazon.com/images/I/41+RfWrXv3L._AC_.jpg"
+      "urlimg": "https://m.media-amazon.com/images/I/41+RfWrXv3L._AC_.jpg",
+      "likes": 4
     },
     {
       "id": 8,
@@ -77,7 +83,8 @@
       "preco": 34.99,
       "quantidade": 30,
       "descricao": "Saia plissada de comprimento midi",
-      "urlimg": "https://cdn.awsli.com.br/800x800/1209/1209265/produto/209889901c9b2cbea8f.jpg"
+      "urlimg": "https://cdn.awsli.com.br/800x800/1209/1209265/produto/209889901c9b2cbea8f.jpg",
+      "likes": 7
     },
     {
       "id": 9,
@@ -85,7 +92,8 @@
       "preco": 29.99,
       "quantidade": 60,
       "descricao": "Óculos de sol estilo aviador",
-      "urlimg": "https://a-static.mlcdn.com.br/450x450/oculos-de-sol-feminino-moda-new-york-degrade-original-olho-de-gato-omg/lojaomega/ocf9/d1a9c038a0e4a311ca08e6ebaab0e02d.jpeg"
+      "urlimg": "https://a-static.mlcdn.com.br/450x450/oculos-de-sol-feminino-moda-new-york-degrade-original-olho-de-gato-omg/lojaomega/ocf9/d1a9c038a0e4a311ca08e6ebaab0e02d.jpeg",
+      "likes": 7
     },
     {
       "id": 10,
@@ -93,7 +101,8 @@
       "preco": 69.99,
       "quantidade": 18,
       "descricao": "Blazer acinturado em tecido leve",
-      "urlimg": "https://4329028l.ha.azioncdn.net/img/2023/04/produto/175761/blazer-off-white-2.jpg?ims=fit-in/478x717/filters:fill(white)"
+      "urlimg": "https://4329028l.ha.azioncdn.net/img/2023/04/produto/175761/blazer-off-white-2.jpg?ims=fit-in/478x717/filters:fill(white)",
+      "likes": 8
     }
   ]
 }

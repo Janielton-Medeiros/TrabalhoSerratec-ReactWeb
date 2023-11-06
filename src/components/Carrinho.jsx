@@ -4,6 +4,7 @@ import { FiX } from "react-icons/fi";
 import { useContext } from "react"
 import { ItemPedido } from './ItemPedido';
 import { CarrinhoContext } from '../context/CarrinhoContext';
+import { Navigate, useNavigate } from 'react-router-dom';
 
 const StyledCarrinho = styled.div`
 
@@ -157,12 +158,19 @@ const StyledCarrinho = styled.div`
 
 export const Carrinho = ({ isOpen, setCarrinhoOpen }) => {
     const { produtos, limparCarrinho } = useContext(CarrinhoContext);
+    const navigate = useNavigate()
   
     const handleLimparCarrinho = () => {
        
         limparCarrinho();
       
       };
+
+    const handleConfirmarPedido = (e) => {
+      
+        navigate('/pedidos/id')
+      
+    }
   
     if (isOpen) {
       return (
@@ -177,7 +185,7 @@ export const Carrinho = ({ isOpen, setCarrinhoOpen }) => {
 
                         <h2>Itens</h2>
 
-                        <button id='btnPedido'>
+                        <button id='btnPedido' onClick={handleConfirmarPedido}>
                             Confirmar pedido
                         </button>
                         <br />
