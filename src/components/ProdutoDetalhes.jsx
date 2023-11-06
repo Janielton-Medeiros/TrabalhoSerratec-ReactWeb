@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { FiX } from "react-icons/fi";
 import { BtnQuantidade } from './BtnQuantidade';
 import { useNavigate } from 'react-router-dom';
-
+import { CarrinhoContext } from '../context/CarrinhoContext';
 
 const StyledDetalhes = styled.div`
 
@@ -68,12 +68,12 @@ const StyledDetalhes = styled.div`
             align-items: center;
             justify-content: center;
 
-            .leftButton {
+            .rightButton {
 
                 border-radius: 8px 0 0 8px;
             }
 
-            .rightButton {
+            .leftButton {
 
                 border-radius: 0 8px 8px 0;
             }
@@ -101,12 +101,30 @@ const StyledDetalhes = styled.div`
             }
         }
     }
-
 `
 
-export const ProdutoDetalhes = ({ produto }) => {
+export const ProdutoDetalhes = () => {
 
     const navigate = useNavigate()
+
+    const { produto, produtos, setProdutos, quantidade, setQuantidade, itens, setItens } = useContext(CarrinhoContext)
+
+    const item = {
+
+        nome: produto.nome,
+        preco: produto.preco,
+        quantidade: quantidade,
+        descricao: produto.descricao,
+        urlimg: produto.urlimg
+    }
+
+    const handleClick = () => {
+
+        setItens([...itens, item])
+        setProdutos([...produtos, produto])
+        setQuantidade(1)
+        navigate('/produtos')
+    }
 
     return (
 
@@ -124,11 +142,15 @@ export const ProdutoDetalhes = ({ produto }) => {
                     <h4>em 10x sem juros</h4>
                 </div>
 
-                <FiX onClick={() => {navigate('/produtos')}}/>
+                <FiX onClick={() => { navigate('/produtos') }} />
 
                 <div>
-                    <BtnQuantidade produto={produto}/>
+                    <BtnQuantidade produto={produto} />
                 </div>
+
+                <button onClick={ handleClick }>
+                    Adicionar
+                </button>
             </div>
 
         </StyledDetalhes>

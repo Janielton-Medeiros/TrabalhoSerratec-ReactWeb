@@ -3,7 +3,6 @@ import { api } from '../api/Api'
 import CardProduto from "../components/CardProduto"
 import styled from 'styled-components'
 import { Navbar } from "../components/Navbar"
-import { Link, useParams } from 'react-router-dom'
 
 const StyledDiv = styled.div`
 
@@ -13,15 +12,15 @@ const StyledDiv = styled.div`
     bottom: 0;
 
     h1 {
+
         font-size: 35px;
         padding-top: 20px;
         margin: 10px;
         text-align: center;
-        
-       
     }
 
     input {
+
         width: 600px;
         height: 40px;
         margin: 0 auto;
@@ -32,10 +31,7 @@ const StyledDiv = styled.div`
         text-align: center;
         position: absolute;
         left: 50%;
-        transform: translateX(-50%);
-       
-
-        
+        transform: translateX(-50%)
     }
 
     #container {
@@ -119,21 +115,24 @@ const StyledDiv = styled.div`
 `
 
 const Produtos = () => {
+
     const [nome, setNome] = useState('');
     const [produtos, setProdutos] = useState([]);
     const [resultadosDaPesquisa, setResultadosDaPesquisa] = useState([]);
 
     useEffect(() => {
+
         const getProdutos = async () => {
             const response = await api.get('/produtos');
             setProdutos(response.data);
-        };
+        }
 
         getProdutos();
     }, []);
 
 
     useEffect(() => {
+
         filtrarProdutos();
     }, [nome, produtos]);
 

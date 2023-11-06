@@ -5,7 +5,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Produtos from "./pages/Produtos.jsx"
 import Login from './pages/login.jsx';
-import Pedidos from "./pages/Pedidos.jsx";
+import { Pedido } from './pages/Pedido.jsx';
+import {Pedidos} from "./pages/Pedidos.jsx";
 import ProdutoDesc from "./pages/ProdutoDesc.jsx";
 import Page404 from './pages/Page404.jsx';
 import App from './App.jsx';
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
         element: <App />,
         errorElement: <Page404 />,
         children: [
+
             {
                 path: "/",
                 element: <Login />,
@@ -32,12 +34,17 @@ const router = createBrowserRouter([
             {
                 path: "/pedidos/:id",
                 element: <Pedidos />,
-                errorElement: <Page404 />,
+                errorElement: <Page404 />
+            },
+            {
+                path: "/finalizar",
+                element: <Pedido />,
+                errorElement: <Page404 />
             },
             {
                 path: "/produtos/:id",
                 element: <ProdutoDesc />,
-                errorElement: <Page404 />,
+                errorElement: <Page404 />
             }
         ]
     }

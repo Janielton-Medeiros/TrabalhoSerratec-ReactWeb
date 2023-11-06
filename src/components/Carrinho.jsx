@@ -4,7 +4,8 @@ import { FiX } from "react-icons/fi";
 import { useContext } from "react"
 import { ItemPedido } from './ItemPedido';
 import { CarrinhoContext } from '../context/CarrinhoContext';
-import { Navigate, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+
 
 const StyledCarrinho = styled.div`
 
@@ -157,23 +158,25 @@ const StyledCarrinho = styled.div`
 `
 
 export const Carrinho = ({ isOpen, setCarrinhoOpen }) => {
-    const { produtos, limparCarrinho } = useContext(CarrinhoContext);
-    const navigate = useNavigate()
-  
-    const handleLimparCarrinho = () => {
-       
-        limparCarrinho();
-      
-      };
 
-    const handleConfirmarPedido = (e) => {
-      
-        navigate('/pedidos/id')
-      
+    const navigate = useNavigate()
+
+    const { produtos, limparCarrinho } = useContext(CarrinhoContext);
+
+
+    const handleLimparCarrinho = () => {
+
+        limparCarrinho();
     }
-  
+
+    const handleConfirmarPedido = () => {
+
+        navigate(`/finalizar`)
+    }
+
     if (isOpen) {
-      return (
+
+        return (
 
             <>
                 <StyledCarrinho>
@@ -194,7 +197,7 @@ export const Carrinho = ({ isOpen, setCarrinhoOpen }) => {
                         </button>
 
                         <div className='quadro'>
-                            {produtos.map((produto, index) => <ItemPedido produto={produto} index={index} />)}
+                            {produtos.map((produto) => <ItemPedido produto={produto} />)}
                         </div>
                     </div>
                 </StyledCarrinho>

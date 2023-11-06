@@ -22,7 +22,7 @@ const StyledItem = styled.div`
         margin-left: 10px;
     }
 
-    p {
+    #paragrafo {
 
         width: 80%;
         height: 85%;
@@ -87,16 +87,16 @@ export const ItemPedido = ({ produto }) => {
 
             <img src={produto.urlimg} alt="foto-produto" />
 
-            <p>
+            <div id='paragrafo'>
                 <div id="info">
                     <h3>{produto.nome}</h3>
                     <h5>R$ {produto.preco}</h5>
                 </div>
 
                 <div id='btn-more'>
-                    <BtnQuantidade produto={produto}/>
+                    <BtnQuantidade />
                 </div>
-            </p>
+            </div>
         </StyledItem>
     )
 }

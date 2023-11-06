@@ -6,7 +6,7 @@ const CardProduto = ({ produto }) => {
     const navigate = useNavigate()
 
     const handleChangeRouter = (produto) => {
-
+        
         navigate(`/produtos/${produto.id}`)
     }
 
@@ -20,8 +20,6 @@ const CardProduto = ({ produto }) => {
             )
         } 
     }
-
-
 
     return (
 
