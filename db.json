@@ -27,6 +27,39 @@
       ],
       "valorTotal": 149.98,
       "id": 1
+    },
+    {
+      "itens": [
+        {
+          "nome": "Jaqueta de couro",
+          "preco": 129.99,
+          "quantidade": 2,
+          "descricao": "Jaqueta de couro estilo motoqueiro",
+          "urlimg": "https://www.omk.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/j/a/jaqueta-couro-bomber-omk.jpg"
+        },
+        {
+          "nome": "Blusa de seda",
+          "preco": 39.5,
+          "quantidade": 2,
+          "descricao": "Blusa de seda com decote em V",
+          "urlimg": "https://img.irroba.com.br/fit-in/600x600/filters:fill(transparent):quality(80)/empoeeoe/catalog/parte-superior/camiseta/camisa/blusas/blusa-tafeta.png"
+        }
+      ],
+      "valorTotal": 338.98,
+      "id": 2
+    },
+    {
+      "itens": [
+        {
+          "nome": "Calça jeans skinny",
+          "preco": 49.99,
+          "quantidade": 1,
+          "descricao": "Calça jeans skinny de lavagem escura",
+          "urlimg": "https://images.tcdn.com.br/img/img_prod/827420/calca_jeans_hno_jeans_skinny_preta_101_1_cd252601db1f881f29f3229afddc47ff.jpg"
+        }
+      ],
+      "valorTotal": 49.99,
+      "id": 3
     }
   ],
   "produtos": [
