@@ -100,6 +100,32 @@ const StyledDetalhes = styled.div`
             }
         }
     }
+
+    #button-adicionar{
+        width: 190px;
+        height: 75px;
+        background: #720e9e;
+        color: white;
+        font-size: 1.3em;
+        cursor: pointer;
+        box-shadow: 0 0 5px 5px #44444434;
+        border-radius: 12px;
+        border: none;
+        position: relative;
+        top: 43.5%;
+        left: -0%;
+        bottom: 15%;
+        right: 29%;
+        
+        &:hover {
+            transform: scale(1.2);
+            transition: .7s;
+        }
+
+        &:active {
+            transform: scale(.9);
+        }
+    }
 `
 
 export const ProdutoDetalhes = () => {
@@ -147,7 +173,7 @@ export const ProdutoDetalhes = () => {
                     <BtnQuantidade produto={produto} quantidade={quantidade}/>
                 </div>
 
-                <button onClick={ handleClick }>
+                <button id='button-adicionar' onClick={ handleClick }>
                     Adicionar
                 </button>
             </div>
