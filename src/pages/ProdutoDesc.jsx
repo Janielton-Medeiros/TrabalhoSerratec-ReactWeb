@@ -28,7 +28,7 @@ const StyledDiv = styled.div`
         border: none;
         position: relative;
         top: 39%;
-        left: -19%;
+        left: -9.5%;
         bottom: 15%;
         right: 29%;
         
