@@ -1,13 +1,17 @@
 import React from 'react'
-import { useEffect, useState, useContext } from "react"
-import { useNavigate } from 'react-router-dom'
+import { useContext } from "react"
 import { CarrinhoContext } from "../context/CarrinhoContext"
 
-export const BtnQuantidade = ({ produto }) => {
+export const BtnQuantidade = () => {
 
-  const navigate = useNavigate()
+  const { produto } = useContext(CarrinhoContext)
 
   const { quantidade,setQuantidade } = useContext(CarrinhoContext)
+
+  const handleChangeQuantidade = (e) => {
+
+    setQuantidade(e.target.value)
+  }
 
   const aumentarQuantidade = () => {
 
@@ -26,7 +30,7 @@ export const BtnQuantidade = ({ produto }) => {
         -
       </button>
 
-      <input value={quantidade} type="number" min={1} max={produto.quantidade} />
+      <input onChange={handleChangeQuantidade} value={quantidade} type="number" min={1} max={produto.quantidade} />
 
       <button className='leftButton' onClick={aumentarQuantidade}>
         +

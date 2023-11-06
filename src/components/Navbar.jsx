@@ -64,7 +64,7 @@ export const Navbar = () => {
         <StyledNavBar>
 
             <div>
-           
+
                 <Link  to={"/produtos"}>
                 <img src={logo}  />
                 </Link>
