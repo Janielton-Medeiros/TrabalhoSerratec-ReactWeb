@@ -137,6 +137,7 @@ const Produtos = () => {
     }, [nome, produtos]);
 
     const filtrarProdutos = () => {
+
         if (nome === '') {
             setResultadosDaPesquisa(produtos);
         } else {

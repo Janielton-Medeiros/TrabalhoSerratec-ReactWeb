@@ -9,4 +9,5 @@ export const GlobalStyle = createGlobalStyle`
         box-sizing: border-box;
         font-family: Verdana, Geneva, Tahoma, sans-serif;
     }
+
 `

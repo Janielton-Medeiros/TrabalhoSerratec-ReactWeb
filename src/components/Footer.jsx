@@ -1,21 +1,28 @@
 import styled from 'styled-components';
 
 const Foter = styled.footer`
-    position: fixed;
-    bottom: 0;
+
     width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    text-align: center;
+    box-shadow: 0 2px 8px 0 rgba( 31, 38, 135, 0.37 );
+    border-top: 2px solid #2f2f2f; 
+    background: linear-gradient(to right, #c1c6c9, #f0f8ff);
+    position: relative;
+    bottom: 0;
     font-weight: bold;
 `;
 
 const A = styled.a`
+
     text-decoration: none;
     color:white;
-
 `;
 
 const Footer = () => {
+
     return (
 
         <Foter class="fixarRodape">

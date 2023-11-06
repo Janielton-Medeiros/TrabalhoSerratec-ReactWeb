@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { BtnQuantidade } from './BtnQuantidade'
+import { CarrinhoContext } from '../context/CarrinhoContext'
 
 const StyledItem = styled.div`
 
@@ -81,6 +82,8 @@ const StyledItem = styled.div`
 
 export const ItemPedido = ({ produto }) => {
 
+    const { quantidade, setQuantidade } = useContext(CarrinhoContext)
+
     return (
 
         <StyledItem>
@@ -94,7 +97,7 @@ export const ItemPedido = ({ produto }) => {
                 </div>
 
                 <div id='btn-more'>
-                    <BtnQuantidade />
+                    <BtnQuantidade quantidade={quantidade}/>
                 </div>
             </div>
         </StyledItem>

@@ -51,7 +51,6 @@ const StyledDetalhes = styled.div`
 
             width: 50px;
             height: 50px;
-            background-color: red;
             border-radius: 4px;
             color: white;
             position: absolute;
@@ -122,7 +121,7 @@ export const ProdutoDetalhes = () => {
 
         setItens([...itens, item])
         setProdutos([...produtos, produto])
-        setQuantidade(1)
+        setQuantidade(quantidade)
         navigate('/produtos')
     }
 
@@ -145,7 +144,7 @@ export const ProdutoDetalhes = () => {
                 <FiX onClick={() => { navigate('/produtos') }} />
 
                 <div>
-                    <BtnQuantidade produto={produto} />
+                    <BtnQuantidade produto={produto} quantidade={quantidade}/>
                 </div>
 
                 <button onClick={ handleClick }>
