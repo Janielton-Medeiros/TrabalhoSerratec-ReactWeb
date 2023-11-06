@@ -12,7 +12,8 @@ const StyledNavBar = styled.nav`
     align-items: center;
     justify-content: space-around;
     background: linear-gradient(115deg, #c1c6c9, #f0f8ff);
-    box-shadow: 0 4px 10px #2f2f2f6e;
+    box-shadow: 0 2px 8px 0 rgba( 31, 38, 135, 0.37 );
+    border-bottom: 2px solid #2f2f2f; 
     color: #2f2f2f;
     cursor: pointer;
     font-size: 1.2rem;
@@ -66,7 +67,7 @@ export const Navbar = () => {
             <div>
 
                 <Link  to={"/produtos"}>
-                <img src={logo}  />
+                    <img src={logo}  />
                 </Link>
                 
             </div>

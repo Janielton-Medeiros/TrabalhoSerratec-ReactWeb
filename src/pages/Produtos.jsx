@@ -89,27 +89,6 @@ const StyledDiv = styled.div`
                     color: red;
                 }
             }
-
-            #quadro {
-
-                margin-top: 60px;
-                width: 100%;
-                height: 20%;
-                padding: 3px;
-                left: 14px;
-                background: linear-gradient(115deg, #c1c6c9, #f0f8ff);
-                color: #2f2f2f;
-
-                span {
-
-                    font-size: 1.2em;
-                }
-
-                h4 {
-
-                    font-size: 1.5em;
-                }
-            }
         }
     }
 `
@@ -137,10 +116,11 @@ const Produtos = () => {
     }, [nome, produtos]);
 
     const filtrarProdutos = () => {
+
         if (nome === '') {
             setResultadosDaPesquisa(produtos);
         } else {
-            const resultados = produtos.filter((produto) => produto.nome.includes(nome));
+            const resultados = produtos.filter((produto) => produto.nome.toLowerCase().includes(nome.toLowerCase()));
             setResultadosDaPesquisa(resultados);
         }
     };

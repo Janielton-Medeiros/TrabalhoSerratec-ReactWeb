@@ -4,6 +4,8 @@ import { FiX } from "react-icons/fi";
 import { BtnQuantidade } from './BtnQuantidade';
 import { useNavigate } from 'react-router-dom';
 import { CarrinhoContext } from '../context/CarrinhoContext';
+import { SiGithubsponsors } from "react-icons/si";
+import { api } from '../api/Api';
 
 const StyledDetalhes = styled.div`
 
@@ -28,6 +30,9 @@ const StyledDetalhes = styled.div`
 
         width: 45%;
         height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         position: relative;
 
         #dados {
@@ -80,7 +85,12 @@ const StyledDetalhes = styled.div`
 
             button {
 
+                width: 50px;
+                height: 50px;
                 background: #720e9e;
+                color: white;
+                cursor: pointer;
+                border-radius: 4px;
                 color: white;
                 cursor: pointer;
             }
@@ -102,9 +112,14 @@ const StyledDetalhes = styled.div`
         }
     }
 
-    #button-adicionar{
+    .button-adicionar{
+
         width: 190px;
         height: 75px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 10px 0;
         background: #720e9e;
         color: white;
         font-size: 1.3em;
@@ -113,10 +128,7 @@ const StyledDetalhes = styled.div`
         border-radius: 12px;
         border: none;
         position: relative;
-        top: 43.5%;
-        left: -0%;
-        bottom: 15%;
-        right: 29%;
+        bottom: -200px;
         
         &:hover {
             transform: scale(1.2);
@@ -126,6 +138,16 @@ const StyledDetalhes = styled.div`
         &:active {
             transform: scale(.9);
         }
+
+        .teste {
+
+            width: 25px !important;
+            height: 25px !important;
+            background-color: transparent !important;
+            position: static !important;
+            top: 28px;
+            left: 61%;
+        }
     }
 `
 
@@ -133,7 +155,7 @@ export const ProdutoDetalhes = () => {
 
     const navigate = useNavigate()
 
-    const { produto, produtos, setProdutos, quantidade, setQuantidade, itens, setItens } = useContext(CarrinhoContext)
+    const { produto, produtos, setProduto, setProdutos, quantidade, setQuantidade, itens, setItens } = useContext(CarrinhoContext)
 
     const item = {
 
@@ -148,8 +170,14 @@ export const ProdutoDetalhes = () => {
 
         setItens([...itens, item])
         setProdutos([...produtos, produto])
-        setQuantidade(1)
+        setQuantidade(quantidade)
         navigate('/produtos')
+    }
+
+    const handleLike = () => {
+
+        api.patch(`/produtos/${produto.id}`, { likes: produto.likes + 1 });
+        setProduto({ ...produto, likes: produto.likes + 1 })
     }
 
     return (
@@ -171,11 +199,16 @@ export const ProdutoDetalhes = () => {
                 <FiX onClick={() => { navigate('/produtos') }} />
 
                 <div>
-                    <BtnQuantidade produto={produto} />
+                    <BtnQuantidade produto={produto} quantidade={quantidade}/>
                 </div>
 
-                <button id='button-adicionar' onClick={ handleClick }>
+                <button className='button-adicionar' onClick={ handleClick }>
                     Adicionar
+                </button>
+                <button className='button-adicionar' onClick={handleLike}>
+                    <span>
+                        <SiGithubsponsors className='teste' /> {produto.likes}
+                    </span>
                 </button>
             </div>
 
