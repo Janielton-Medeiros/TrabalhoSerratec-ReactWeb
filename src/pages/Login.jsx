@@ -178,7 +178,7 @@ function Login() {
       
       navigate('/produtos')
     } else {
-      alert('senha e usuarios invalidos')
+      alert('Senha ou usuário inválidos!')
     }
   }
 
@@ -199,7 +199,7 @@ function Login() {
             </Textfield>
             <Textfield>
               <TextfieldLabel >Senha</TextfieldLabel>
-              <TextfieldInput onChange={(e) => { setSenha(e.target.value) }} type="text" name='senha' placeholder='4/16 caracteres' />
+              <TextfieldInput onChange={(e) => { setSenha(e.target.value) }} type="password" name='senha' placeholder='4/16 caracteres' />
             </Textfield>
             <BtnLogin type='submit'>Entrar</BtnLogin>
             <CardLoginLink href=""><h3>Novo usuário? Cadastre-se!</h3></CardLoginLink>

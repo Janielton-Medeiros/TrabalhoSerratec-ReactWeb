@@ -60,6 +60,19 @@
       ],
       "valorTotal": 49.99,
       "id": 3
+    },
+    {
+      "itens": [
+        {
+          "nome": "Blusa de seda",
+          "preco": 39.5,
+          "quantidade": 1,
+          "descricao": "Blusa de seda com decote em V",
+          "urlimg": "https://img.irroba.com.br/fit-in/600x600/filters:fill(transparent):quality(80)/empoeeoe/catalog/parte-superior/camiseta/camisa/blusas/blusa-tafeta.png"
+        }
+      ],
+      "valorTotal": 39.5,
+      "id": 4
     }
   ],
   "produtos": [
