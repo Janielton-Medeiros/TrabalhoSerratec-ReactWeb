@@ -94,6 +94,20 @@
       ],
       "valorTotal": 139.98,
       "id": 5
+    },
+    {
+      "idUsuario": 1,
+      "itens": [
+        {
+          "nome": "Calça jeans skinny",
+          "preco": 49.99,
+          "quantidade": 1,
+          "descricao": "Calça jeans skinny de lavagem escura",
+          "urlimg": "https://images.tcdn.com.br/img/img_prod/827420/calca_jeans_hno_jeans_skinny_preta_101_1_cd252601db1f881f29f3229afddc47ff.jpg"
+        }
+      ],
+      "valorTotal": 39.99,
+      "id": 6
     }
   ],
   "produtos": [
