@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 import { Carrinho } from "../components/Carrinho"
 import logo from '../assets/img/logo.svg'
-
+import { User } from './User'
 
 const StyledNavBar = styled.nav`
 
@@ -59,6 +59,7 @@ const StyledNavBar = styled.nav`
 export const Navbar = () => {
 
     const [openCarrinho, setOpenCarrinho] = useState(false)
+    const [openUser, setOpenUser] = useState(false)
 
     return (
 
@@ -78,9 +79,10 @@ export const Navbar = () => {
                 </li>
                 <li onClick={() => {setOpenCarrinho(true)}}>Carrinho</li>
                 <li>Ajuda</li>
-                <li>Meu Perfil</li>
+                <li onClick={() => {setOpenUser(true)}}>Meu Perfil</li>
             </ul>
             <Carrinho isOpen={openCarrinho} setCarrinhoOpen={() => setOpenCarrinho(!openCarrinho)} />
+            <User isOpen={openUser} setOpenUser={() => setOpenUser(!setOpenUser)}/>
         </StyledNavBar>
     )
 }
