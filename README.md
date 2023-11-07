@@ -17,16 +17,21 @@ NATHAN FELIPE DA SILVA FERREIRA
 <h2>Historinha:</h2>
 
 
+<h3>
 1.Criar uma aplicação React que disponibilize produtos para que um usuário possa,
 conforme navega pelo site, incluir os produtos desejados no Carrinho e no
 momento que quiser, realizar a compra dos produtos selecionados.
+</h3>
 
-Especificações:
+<h2>Especificações:</h2>
 
+<h3>
 Para a execução do projeto é necessário deixar as seguintes considerações e regras do que
 tem que ser feito:
+</h3>
 
 <h2>1.Tela de Login, solicitando: ✔️</h2>
+
 
 
 a. Email ✔️    
@@ -63,11 +68,9 @@ finalizar a compra.  ✔️
 </h2>
 
 a. Por termos a limitação da API, ao finalizar a compra, deverá ser realizada
-requisição para diminuir a quantidade de produtos logo após a finalização da compra.
+requisição para diminuir a quantidade de produtos logo após a finalização da compra. ✔️
 
 b. Após os passos acima redirecionar para a tela de Pedidos realizados, onde
-conterá uma listagem de todos os pedidos feitos por aquele usuário.
+conterá uma listagem de todos os pedidos feitos por aquele usuário. ✔️
 
-
-
-
+ <img align="center" alt="foto-Js" height="70" width="600" src="https://media.tenor.com/eSXTMBrfwgkAAAAi/cj-gta.gif">
