@@ -10,7 +10,13 @@ export const BtnQuantidade = () => {
 
   const handleChangeQuantidade = (e) => {
 
-    setQuantidade(e.target.value)
+    if (e.target.value > produto.quantidade) { 
+
+      setQuantidade(e.target.value)
+    } else {
+
+      alert('A quantidade do item é inválida')
+    }
   }
 
   const aumentarQuantidade = () => {
