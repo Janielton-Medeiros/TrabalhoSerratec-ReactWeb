@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import styled from 'styled-components'
 import { FiX } from "react-icons/fi";
 import { BtnQuantidade } from './BtnQuantidade';
@@ -17,6 +17,45 @@ const StyledDetalhes = styled.div`
     border: 2px solid #720e9e; 
     border-radius: 24px;
     background-color: #f2f2f2;
+
+    .btn {
+
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #720e9e;
+        border: none;
+        color: white;
+        position: absolute;
+        top: 50%;
+
+        svg {
+
+            width: 100%;
+            height: 100%;
+
+            &:hover {
+
+                transform: scale(1.2);
+                transition: .3s;
+            }
+        }
+    }
+
+    .left {
+
+        border-radius: 12px 0 0 12px;
+        left: 22.4%;
+
+    }
+
+    .right {
+
+        border-radius: 0 12px 12px 0;
+        right: 22.4%;
+    }
 
     img {
 
@@ -157,6 +196,7 @@ export const ProdutoDetalhes = () => {
 
     const { produto, produtos, setProduto, setProdutos, quantidade, setQuantidade, itens, setItens } = useContext(CarrinhoContext)
 
+
     const item = {
 
         nome: produto.nome,
@@ -211,7 +251,6 @@ export const ProdutoDetalhes = () => {
                     </span>
                 </button>
             </div>
-
         </StyledDetalhes>
     )
 }
