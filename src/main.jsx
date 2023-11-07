@@ -5,6 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
 import Produtos from "./pages/Produtos.jsx"
 import Login from './pages/login.jsx';
+import Cadastrar from './pages/Cadastrar.jsx';
 import { Pedido } from './pages/Pedido.jsx';
 import {Pedidos} from "./pages/Pedidos.jsx";
 import ProdutoDesc from "./pages/ProdutoDesc.jsx";
@@ -24,6 +25,11 @@ const router = createBrowserRouter([
             {
                 path: "/",
                 element: <Login />,
+                errorElement: <Page404 />,
+            },
+            {
+                path: "/cadastrar",
+                element: <Cadastrar />,
                 errorElement: <Page404 />,
             },
             {

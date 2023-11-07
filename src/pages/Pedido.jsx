@@ -120,6 +120,47 @@ const StyledDiv = styled.div`
     } 
 `
 
+const Button = styled.button`
+
+    width: 8.5em;
+    height: 4.3em;
+    margin: 0.5em;
+    background: linear-gradient(115deg, #c1c6c9, #f0f8ff);
+    color: white;
+    border: 1px solid #ccc;
+    border-radius: 0.625em;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+
+    &:hover {
+
+        color: #ccc;
+
+        &:after {
+            transform: skewX(-45deg) scale(1, 1);
+            transition: all 0.5s;
+        }
+    }
+
+    &::after {
+
+        content: '';
+        background: white;
+        position: absolute;
+        z-index: -1;
+        left: -20%;
+        right: -20%;
+        top: 0;
+        bottom: 0;
+        transform: skewX(-45deg) scale(0, 1);
+        transition: all 0.5s;
+    }
+`;
+
 export const Pedido = () => {
 
     const navigate = useNavigate()
@@ -129,14 +170,12 @@ export const Pedido = () => {
         handleDesconto()
     }, [])
 
-    const { itens, usuario } = useContext(CarrinhoContext)
+    const { itens, usuario, produto, produtos, limparCarrinho } = useContext(CarrinhoContext)
     const [valorTotal, setValorTotal] = useState(0)
     const [cupom, setCupom] = useState('')
 
     const desconto = 10
-
     let valorInicial = 0
-
 
     const handleDesconto = () => {
 
@@ -169,10 +208,28 @@ export const Pedido = () => {
             valorTotal: valorTotal
         }
 
+        handleAbaterEstoque()
+        limparCarrinho()
         await api.post('/pedidos', pedido)
         alert("o pedido foi finalizado.")
         navigate(`/pedidos/${usuario.id}`)
-    
+    }
+
+    const handleAbaterEstoque = async () => {
+
+        itens.map((item) => {
+
+            produtos.filter((produto) => {
+
+                produto.nome == item.nome
+            })
+
+            produtos.map((produto) => {
+
+                let novoEstoque = produto.quantidade - item.quantidade
+                api.patch(`/produtos/${produto.id}`, { quantidade: novoEstoque })
+            })
+        })
     }
 
     return (
@@ -218,7 +275,7 @@ export const Pedido = () => {
 
                         <div className='input'>
                             <input type="text" onChange={(e) => { setCupom(e.target.value) }} />
-                            <button style={{background: "transparent", border: "none", cursor: "pointer"}} onClick={handleDesconto}>
+                            <button style={{ background: "transparent", border: "none", cursor: "pointer" }} onClick={handleDesconto}>
                                 <BiCheckSquare />
                             </button>
                         </div>
@@ -228,11 +285,11 @@ export const Pedido = () => {
 
                     <h3>Valor Total: R$ {valorTotal.toFixed(2)}</h3>
 
-                    <button onClick={handleFinalizarPedido}>
+                    <Button className="btn" onClick={handleFinalizarPedido}>
                         Confirmar Pedido
-                    </button>
-                </div>
+                    </Button>
 
+                </div>
             </StyledDiv>
         </>
     )

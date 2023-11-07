@@ -1,13 +1,14 @@
 import React from 'react'
 import modelo from '../assets/img/modelo.jpg'
+import lupita from '../assets/img/lupita.jpg'
 import background from '../assets/img/background.jfif'
 import styled from 'styled-components'
 import { api } from '../api/Api'
 import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { CarrinhoContext } from '../context/CarrinhoContext'
 import { useContext } from 'react'
-
+import { Link } from 'react-router-dom'
 
 const MainLogin = styled.div`
 
@@ -25,6 +26,7 @@ const MainLogin = styled.div`
 `;
 
 const LeftLogin = styled.div`
+
   width: 55vh;
   height: 100vh;
   display: flex;
@@ -34,11 +36,13 @@ const LeftLogin = styled.div`
 `;
 
 const LeftLoginH1 = styled.h1`
+
   color: #010101;
   font-size: 5vh;
 `;
 
 const RightLogin = styled.div`
+
   width: 50vh;
   height: 2vh;
   display: flex;
@@ -48,17 +52,21 @@ const RightLogin = styled.div`
 `;
 
 const LeftLoginImage = styled.img`
+
   width: 55vh;
   border-radius: 20px;
   box-shadow: 0px 10px 40px black;
 `;
 
 const CardLogin = styled.form`
+
   width: 60%;
+  height: 80%;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  gap: 50px;
   padding: 30px 35px;
   background-color: #2F2F2F;
   border-radius: 20px;
@@ -66,6 +74,7 @@ const CardLogin = styled.form`
 `;
 
 const CardLoginLink = styled.a`
+
   text-decoration: none;
   color: black;
   font-size: 11px;
@@ -84,6 +93,7 @@ const CardLoginLink = styled.a`
 `;
 
 const Textfield = styled.div`
+
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -111,12 +121,15 @@ const TextfieldInput = styled.input`
 `;
 
 const TextfieldLabel = styled.label`
+
   color: #ffffff;
   margin-bottom: 10px;
   font-size: 14pt;
+  padding: 12px;
 `;
 
 const BtnLogin = styled.button`
+
   width: 100%;
   padding: 16px 0px;
   margin: 25px;
@@ -138,7 +151,7 @@ const BtnLogin = styled.button`
 `;
 
 
-function Login() {
+function Cadastrar() {
 
   const { setUsuario } = useContext(CarrinhoContext)
 
@@ -147,73 +160,72 @@ function Login() {
   const [email, setEmail] = useState('')
   const [nome, setNome] = useState('')
   const [senha, setSenha] = useState('')
-  const [listaLogin, setlistaLogin] = useState([])
+  const [confirmar, setConfirmar] = useState([])
 
-  const handleSave = async (e) => {
-    e.preventDefault()
-    await api.post('/login', { nome, email, senha })
+  const usuario = {
+
+    nome: nome,
+    email: email,
+    senha: senha
   }
 
-  const handleLimpar = () => {
-    setNome('')
-    setEmail('')
-    setSenha('')
-  }
-
-  const getUsers = async (e) => {
+  const saveUsuario = async (e) => {
 
     e.preventDefault()
 
+    if (senha == confirmar) {
 
-    
-    const response = await api.get('/users', {params: {email, senha}})
-
-    const dados = response.data
-
-    dados.map((dado) => {
-
-      setUsuario(dado)
-    })
-
-    if (dados.length == 1) {
-      
-      navigate('/produtos')
+      await api.post('/users', usuario)
+      navigate('/')
+      alert("usuario cadastrado com sucesso.")
     } else {
-      alert('Senha ou usuário inválidos!')
+  
+      alert("Senha inválida. Tente novamente")
     }
   }
 
   return (
 
     <>
-      <MainLogin src={background} onSubmit={getUsers}>
+      <MainLogin src={background} onSubmit={saveUsuario}>
         <LeftLogin>
-          <LeftLoginH1></LeftLoginH1>
-          <LeftLoginImage src={modelo} alt="modelo" />
-        </LeftLogin>
-        <RightLogin >
           <CardLogin>
             <RightLogin></RightLogin>
             <Textfield>
+
               <TextfieldLabel>Email</TextfieldLabel>
               <TextfieldInput onChange={(e) => { setEmail(e.target.value) }} type='email' name='email' placeholder='exemplo@gmail.com' autoComplete='off' />
+
+              <TextfieldLabel for="cadastroUsuario">Nome</TextfieldLabel>
+              <TextfieldInput onChange={(e) => { setNome(e.target.value) }} id="cadastroUsuario" type="text" name="usuario" placeholder="Nome" required />
+
             </Textfield>
             <Textfield>
+
               <TextfieldLabel >Senha</TextfieldLabel>
               <TextfieldInput onChange={(e) => { setSenha(e.target.value) }} type="password" name='senha' placeholder='4/16 caracteres' />
-            </Textfield>
-            <BtnLogin type='submit'>Entrar</BtnLogin>
-            <CardLoginLink>
-              <Link to={'/cadastrar'}>
-                <h3>Novo usuário? Cadastre-se!</h3>
+
+              <TextfieldLabel >Confirmar senha</TextfieldLabel>
+              <TextfieldInput onChange={(e) => { setConfirmar(e.target.value) }} type="password" name='senha' placeholder='4/16 caracteres' />
+
+              <CardLoginLink>
+              <Link to={'/'}>
+                <h3 style={{margin:"10px"}}>Já tem cadastro? Faça o login </h3>
               </Link>
             </CardLoginLink>
+
+            </Textfield>
+            <BtnLogin type='submit'>Entrar</BtnLogin>
           </CardLogin>
+          <LeftLoginH1></LeftLoginH1>
+        </LeftLogin>
+        <RightLogin >
+          <LeftLoginImage src={lupita} alt="modelo" />
         </RightLogin>
       </MainLogin>
     </>
   )
 }
 
-export default Login
+export default Cadastrar
 

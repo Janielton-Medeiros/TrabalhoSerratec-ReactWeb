@@ -1,101 +1,6 @@
 {
-  "users": [
-    {
-      "nome": "Eduardo Pacheco",
-      "email": "eduardo@gmail.com",
-      "senha": "1234",
-      "id": 1
-    },
-    {
-      "nome": "Janielton",
-      "email": "janielton@gmail.com",
-      "senha": "12345",
-      "id": 2
-    }
-  ],
-  "pedidos": [
-    {
-      "itens": [
-        {
-          "nome": "Sapatos de salto alto",
-          "preco": 79.99,
-          "quantidade": 2,
-          "descricao": "Sapatos de salto alto em verniz",
-          "urlimg": "https://img.ltwebstatic.com/images3_pi/2023/08/31/fb/1693495017f2a8f7e72a516df4ccca6b42489100e6_thumbnail_720x.webp"
-        }
-      ],
-      "valorTotal": 149.98,
-      "id": 1
-    },
-    {
-      "itens": [
-        {
-          "nome": "Blusa de seda",
-          "preco": 39.5,
-          "quantidade": 1,
-          "descricao": "Blusa de seda com decote em V",
-          "urlimg": "https://img.irroba.com.br/fit-in/600x600/filters:fill(transparent):quality(80)/empoeeoe/catalog/parte-superior/camiseta/camisa/blusas/blusa-tafeta.png"
-        },
-        {
-          "nome": "Blusa de seda",
-          "preco": 39.5,
-          "quantidade": 1,
-          "descricao": "Blusa de seda com decote em V",
-          "urlimg": "https://img.irroba.com.br/fit-in/600x600/filters:fill(transparent):quality(80)/empoeeoe/catalog/parte-superior/camiseta/camisa/blusas/blusa-tafeta.png"
-        }
-      ],
-      "valorTotal": 79,
-      "id": 2
-    },
-    {
-      "itens": [
-        {
-          "nome": "Sapatos de salto alto",
-          "preco": 79.99,
-          "quantidade": 1,
-          "descricao": "Sapatos de salto alto em verniz",
-          "urlimg": "https://img.ltwebstatic.com/images3_pi/2023/08/31/fb/1693495017f2a8f7e72a516df4ccca6b42489100e6_thumbnail_720x.webp"
-        }
-      ],
-      "valorTotal": 79.99,
-      "id": 3
-    },
-    {
-      "idUsuario": 1,
-      "itens": [
-        {
-          "nome": "Sapatos de salto alto",
-          "preco": 79.99,
-          "quantidade": 1,
-          "descricao": "Sapatos de salto alto em verniz",
-          "urlimg": "https://img.ltwebstatic.com/images3_pi/2023/08/31/fb/1693495017f2a8f7e72a516df4ccca6b42489100e6_thumbnail_720x.webp"
-        }
-      ],
-      "valorTotal": 79.99,
-      "id": 4
-    },
-    {
-      "idUsuario": 1,
-      "itens": [
-        {
-          "nome": "Sapatos de salto alto",
-          "preco": 79.99,
-          "quantidade": 1,
-          "descricao": "Sapatos de salto alto em verniz",
-          "urlimg": "https://img.ltwebstatic.com/images3_pi/2023/08/31/fb/1693495017f2a8f7e72a516df4ccca6b42489100e6_thumbnail_720x.webp"
-        },
-        {
-          "nome": "Vestido floral",
-          "preco": 59.99,
-          "quantidade": 1,
-          "descricao": "Vestido midi estampado floral",
-          "urlimg": "https://shoppingcity.com.br/media/catalog/product/cache/51a80c9da94f85ac42b65ba251e9fd91/v/e/vestido_roxa_curto_estampa_floral_manga.jpg"
-        }
-      ],
-      "valorTotal": 139.98,
-      "id": 5
-    }
-  ],
+  "users": [],
+  "pedidos": [],
   "produtos": [
     {
       "id": 1,
@@ -119,7 +24,7 @@
       "id": 3,
       "nome": "Blusa de seda",
       "preco": 39.5,
-      "quantidade": 40,
+      "quantidade": 20,
       "descricao": "Blusa de seda com decote em V",
       "urlimg": "https://img.irroba.com.br/fit-in/600x600/filters:fill(transparent):quality(80)/empoeeoe/catalog/parte-superior/camiseta/camisa/blusas/blusa-tafeta.png",
       "likes": 12
