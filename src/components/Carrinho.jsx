@@ -6,7 +6,6 @@ import { ItemPedido } from './ItemPedido';
 import { CarrinhoContext } from '../context/CarrinhoContext';
 import { useNavigate } from 'react-router-dom';
 
-
 const StyledCarrinho = styled.div`
 
     width: 100%;
@@ -119,14 +118,14 @@ const StyledCarrinho = styled.div`
 
             @keyframes btnLimpar {
 
-            to {
+                to {
 
-                background-color: #800000;
-                color: #f2f2f2;
-                
+                    background-color: #800000;
+                    color: #f2f2f2;
+                    
+                }
             }
-            }
-            }
+        }
 
         
         @keyframes aparecer {
@@ -155,6 +154,7 @@ const StyledCarrinho = styled.div`
             background-color: #2f2f2f5f;
         }
     }
+
     #teste{
         display: flex;
         justify-content: center;

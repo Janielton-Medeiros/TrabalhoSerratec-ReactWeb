@@ -1,5 +1,12 @@
 {
-  "users": [],
+  "users": [
+    {
+      "nome": "admin",
+      "email": "adm@gmail.com",
+      "senha": "1234",
+      "id": 1
+    }
+  ],
   "pedidos": [],
   "produtos": [
     {
